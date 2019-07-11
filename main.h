@@ -8,8 +8,8 @@ Notes:
 #ifndef MAIN_H
 #define MAIN_H
 
-#include "functions.h"
-#include "linkedList.h"
+// #include "functions.h"
+// #include "linkedList.h"
 
 
 #endif
