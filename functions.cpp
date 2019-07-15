@@ -4,3 +4,5 @@ Assignment: Final
 Purpose: 
 Notes:  
 ***********************************************************/
+
+#include "functions.h"
