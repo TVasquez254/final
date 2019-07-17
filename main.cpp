@@ -55,6 +55,25 @@ int main(int argc, char *argv[])
                             matrix[j][k]=0;
                         }
                     }
+                    for (int i=0; i< edges; i++)
+                    {
+                        int a,b;
+                        infile >>a >> b;
+                        matrix[a][b] = 1;
+                    }
+                    cout<< "Number of vertices: "<< vertices<< "\n";
+                    cout<< "Number of edges: "<< edges<< "\n";
+
+                    cout<<"Adjacency matrix:\n";
+                    for (int j=0;j<vertices;j++)
+                    {
+                        cout<<" ";
+                        for (int k=0;k<vertices;k++)
+                        {
+                            cout<<matrix[j][k]<<" ";
+                        }
+                    }
+
                                     
                 }
         
