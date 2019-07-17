@@ -16,6 +16,9 @@ Notes:
 #include "data.h"
 
 using namespace std;
+
+//TESTING
+bool displaySize(int argc, char** argv);
  
 
 #endif
