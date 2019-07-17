@@ -11,6 +11,7 @@ Notes:
 
 #include <iostream>
 #include <string>
+#include <fstream>
 #include <stdio.h>
 #include <time.h>
 #include "data.h"

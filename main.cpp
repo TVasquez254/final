@@ -5,7 +5,7 @@ Purpose:
 Notes:   
 ***********************************************************/
 #include "main.h" 
-
+#include <fstream>
 int main(int argc, char *argv[])
 {
     srand(time(NULL));          // Time 
@@ -31,7 +31,9 @@ int main(int argc, char *argv[])
             infile.open(argv[i]);
             infile.peek();
             cout<<endl;
-            fileSize = displaySize(argc, argv);
+            int vertices;
+            int edges;
+            //fileSize = displaySize(argc, argv);
 
             if (infile.eof()){
                 cout<<"nothing is there"<<endl;
@@ -39,16 +41,21 @@ int main(int argc, char *argv[])
             {
                 cout<<"file doesnt exist"<<endl;
                 
-            } else if (fileSize==false ){
-                cout<<"file is to large"<<endl;
             } else 
             {
-                while(infile >> id)
+                if (infile.is_open())
                 {
-                    getline(infile, word);
-                    word = word.substr(1,32);
-                    cout << id << "  " << word <<endl;
-                    //hashtable.add(id, word);                  
+                    infile >> vertices;
+                    infile >> edges;
+                    int matrix[vertices][vertices];
+                    for (int j=0;j<vertices;j++)
+                    {
+                        for (int k=0;k<vertices;k++)
+                        {
+                            matrix[j][k]=0;
+                        }
+                    }
+                                    
                 }
         
                 infile.close();
