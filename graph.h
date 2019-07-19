@@ -16,9 +16,9 @@ class Graph
 { 
     int V;                          // No. of vertices 
     std::list<int> *adj;        // Pointer to an array containing adjacency lists 
-    
+
 public : 
-    Graph( int V ); 
+    Graph(int V); 
     void addEdge ( int u, int v ) ;     // function to add an edge to graph 
     int countEdges();           // function to count # of edge 
     int countVertex();          // function to count # of vertecies 
@@ -26,6 +26,8 @@ public :
     bool removeEdge();          // function to remove edge 
     bool removeVertex();          // function to remove edge 
     void BFS(int s);    // prints BFS traversal from a given source s 
+    void DFS(int v);
+    void DFSUtil(int v, bool visited[]);
 }; 
 
 
