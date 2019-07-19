@@ -18,8 +18,6 @@ Notes:
 
 using namespace std;
 
-//TESTING
-bool displaySize(int argc, char** argv);
  
 
 #endif

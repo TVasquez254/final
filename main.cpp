@@ -9,7 +9,6 @@ Notes:
 int main(int argc, char *argv[])
 {
     srand(time(NULL));          // Time 
-    //HashTable hashtable;        //Dynamic allocated Hashtable
     bool fileSize;              // file size evaluation
     int id;                     // id extractor 
     string word;                // file word extraction
@@ -33,7 +32,7 @@ int main(int argc, char *argv[])
             cout<<endl;
             int vertices;
             int edges;
-            //fileSize = displaySize(argc, argv);
+            
 
             if (infile.eof()){
                 cout<<"nothing is there"<<endl;
