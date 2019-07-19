@@ -19,15 +19,16 @@ class Graph
 
 public : 
     Graph(int V); 
-    void addEdge ( int u, int v ) ;     // function to add an edge to graph 
+    void addEdge (int u, int v ) ;     // function to add an edge to graph 
     int countEdges();           // function to count # of edge 
     int countVertex();          // function to count # of vertecies 
     bool isConnected();         // function to determine if graph is connected
     bool removeEdge();          // function to remove edge 
     bool removeVertex();          // function to remove edge 
-    void BFS(int s);    // prints BFS traversal from a given source s 
-    void DFS(int v);
+    void BFS(int s);            // prints BFS traversal from a given source s 
+    void DFS(int v);            // prints DFS traversal from a given source s
     void DFSUtil(int v, bool visited[]);
+    void listDisconnected();
 }; 
 
 
