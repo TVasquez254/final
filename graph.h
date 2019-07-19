@@ -9,7 +9,7 @@ Notes:
 #define GRAPH_H
 #include <list>
 #include <vector>
-#include<iostream> 
+#include<iostream> directed graph 
 
 // Adjacency list representation of graph 
 class Graph 
@@ -19,14 +19,14 @@ class Graph
 
 public : 
     Graph(int V); 
-    void addEdge (int u, int v ) ;     // function to add an edge to graph 
-    int countEdges();           // function to count # of edge 
-    int countVertex();          // function to count # of vertecies 
-    bool isConnected();         // function to determine if graph is connected
-    bool removeEdge();          // function to remove edge 
-    bool removeVertex();          // function to remove edge 
-    void BFS(int s);            // prints BFS traversal from a given source s 
-    void DFS(int v);            // prints DFS traversal from a given source s
+    void addEdge (int u, int v ) ;      // function to add an edge to graph 
+    int countEdges();                   // function to count # of edge 
+    int countVertex();                  // function to count # of vertecies 
+    bool isConnected();                 // function to determine if graph is connected
+    bool removeEdge();                  // function to remove edge 
+    bool removeVertex();                // function to remove edge 
+    void BFS(int s);                    // prints a directed graph BFS traversal from point s 
+    void DFS(int v);                    // prints a directed graph DFS traversal from point s
     void DFSUtil(int v, bool visited[]);
     void listDisconnected();
 }; 
