@@ -10,6 +10,7 @@ Notes:
 
 #include "functions.h"
 #include "graph.h"
+#include "data.h"
 
 
 #endif
