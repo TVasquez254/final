@@ -82,4 +82,23 @@ void Graph::BFS(int s)
             } 
         } 
     } 
+}
+
+// Returns count of edge in undirected graph 
+int Graph :: countEdges() 
+{ 
+    int sum = 0; 
+  
+    //traverse all vertex 
+    for (int i = 0 ; i < V ; i++) 
+  
+        // add all edge that are linked to the 
+        // current vertex 
+        sum += adj[i].size(); 
+  
+  
+    // The count of edge is always even because in 
+    // undirected graph every edge is connected 
+    // twice between two vertices 
+    return sum/2; 
 } 
