@@ -15,7 +15,7 @@ Notes:
 class Graph 
 { 
     int V;                          // No. of vertices 
-    std::list<int> *adj;        // Pointer to an array containing adjacency lists 
+    std::list<int> *adj;            // Pointer to an array containing adjacency lists 
 
 public : 
     Graph(int V); 
@@ -25,9 +25,10 @@ public :
     bool isConnected();                 // function to determine if graph is connected
     bool removeEdge();                  // function to remove edge 
     bool removeVertex();                // function to remove edge 
-    void BFS(int s);                    // prints a directed graph BFS traversal from point s 
-    void DFS(int v);                    // prints a directed graph DFS traversal from point s
+    void BFS(int s);                    // directed graph BFS traversal from point s 
+    void DFS(int v);                    // directed graph DFS traversal from point s
     void DFSUtil(int v, bool visited[]);
+    bool isConnected();                 //checks for connection in a directed graph
     void listDisconnected();
 }; 
 

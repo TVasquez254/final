@@ -1,8 +1,14 @@
+/***********************************************************
+Name: Tomas Vasquez 
+Assignment: Final
+Purpose: 
+Notes:  
+***********************************************************/
 #include "graph.h"
 using namespace std;
 
 
-//Constructor
+//Constructor of directed graph
 Graph::Graph(int V) 
 { 
     this->V = V; 
@@ -101,4 +107,22 @@ int Graph :: countEdges()
     // undirected graph every edge is connected 
     // twice between two vertices 
     return sum/2; 
+} 
+
+// Returns true if given graph is connected, else false 
+bool Graph::isConnected() 
+{ 
+    bool visited[V]; 
+    memset(visited, false, sizeof(visited)); 
+  
+    // Find all reachable vertices from first vertex 
+    DFS(0, visited); 
+  
+    // If set of reachable vertices includes all, 
+    // return true. 
+    for (int i=1; i<V; i++) 
+       if (visited[i] == false) 
+           return false; 
+  
+    return true; 
 } 
