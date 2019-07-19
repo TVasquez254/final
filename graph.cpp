@@ -113,7 +113,7 @@ int Graph :: countEdges()
 bool Graph::isConnected() 
 { 
     bool visited[V]; 
-    memset(visited, false, sizeof(visited)); 
+    //memset(visited, false, sizeof(visited));            // may need to change thiss
   
     // Find all reachable vertices from first vertex 
     DFS(0, visited); 
@@ -125,4 +125,17 @@ bool Graph::isConnected()
            return false; 
   
     return true; 
+} 
+
+void Graph::DFS(int v, bool visited[]) 
+{ 
+    // Mark the current node as visited and print it 
+    visited[v] = true; 
+  
+    // Recur for all the vertices adjacent to 
+    // this vertex 
+    list<int>::iterator i; 
+    for (i = adj[v].begin(); i != adj[v].end(); ++i) 
+        if (!visited[*i]) 
+            DFS(*i, visited); 
 } 
