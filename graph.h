@@ -5,11 +5,9 @@ Purpose:
 Notes:   
 ***********************************************************/
 
-#ifndef MAIN_H
-#define MAIN_H
-
-#include "functions.h"
-#include "graph.h"
+#ifndef GRAPH_H
+#define GRAPH_H
 
 
-#endif
+
+#endif //GRAPH_H
