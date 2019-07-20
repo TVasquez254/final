@@ -4,8 +4,14 @@ Assignment: Final
 Purpose: 
 Notes:   
 ***********************************************************/
-#include "main.h" 
+
+#include <iostream>
 #include <fstream>
+#include <string>
+#include "main.h"
+
+using namespace std;
+bool displaySize(int argc, char** argv);
 int main(int argc, char *argv[])
 {
     srand(time(NULL));          // Time 
@@ -14,10 +20,7 @@ int main(int argc, char *argv[])
     string word;                // file word extraction
     int h=0;                    //ARGV counter
     h = argc-1;                 // maintenance counter control
-
-    //*************************************************************
-    //   Main Data Test-Checking for opening & error checking     *
-    //*************************************************************
+    
 
     if (h==0)
     {
@@ -30,55 +33,83 @@ int main(int argc, char *argv[])
             infile.open(argv[i]);
             infile.peek();
             cout<<endl;
-            int vertices;
-            int edges;
-            
 
-            if (infile.eof()){
+            if (!infile.is_open()){
                 cout<<"nothing is there"<<endl;
-            } else if(!infile.is_open())
+            } else if(infile.eof())
             {
                 cout<<"file doesnt exist"<<endl;
                 
-            } else 
+            }  else  ////////// File open and has data //////////////
             {
-                if (infile.is_open())
+                string firstline;
+                int size = 0;
+                bool hasLables = false;
+                getline(infile, firstline);
+                int i =0;
+                if(firstline[i] == 'X')
                 {
-                    infile >> vertices;
-                    infile >> edges;
-                    int matrix[vertices][vertices];
-                    for (int j=0;j<vertices;j++)
+                    hasLables=true;
+                    i++;
+                }
+
+                for(; i<firstline.length(); i++)
+                {
+                    if(isalnum(firstline[i]))
+                        size++;
+                }
+
+                if(!hasLables)
+                    infile.seekg(0, infile.beg);
+
+
+                Graph g(size);
+
+                cout << "reading " << argv[i] << endl;
+                char ch; // character read from the file
+                int number;
+                int row = 0, col = 0;
+                ch = infile.peek();
+                while (!infile.eof())
+                {
+                    //cout << ch ;
+                    if (isdigit(ch))
                     {
-                        for (int k=0;k<vertices;k++)
+                        
+                        infile >> number;
+                        
+                        if(number > 0)
                         {
-                            matrix[j][k]=0;
+                            cout << "value: " << ch << '\t';
+                            cout << row << ", " << col << endl;
+                            g.addEdge(row,col, number);
+                        }
+                        col++;
+                        //cout<< number;
+                    }
+                    else{
+                        ch = infile.get();
+                        if(ch == '\n')
+                        {
+                            row++;
+                            col=0;
+                        }
+                        else if(ch == 'x')
+                        {
+                            col++;
                         }
                     }
-                    for (int i=0; i< edges; i++)
-                    {
-                        int a,b;
-                        infile >>a >> b;
-                        matrix[a][b] = 1;
-                    }
-                    cout<< "Number of vertices: "<< vertices<< "\n";
-                    cout<< "Number of edges: "<< edges<< "\n";
-
-                    cout<<"Adjacency matrix:\n";
-                    for (int j=0;j<vertices;j++)
-                    {
-                        cout<<" ";
-                        for (int k=0;k<vertices;k++)
-                        {
-                            cout<<matrix[j][k]<<" ";
-                        }
-                    }
-
-                                    
+                    
+                    ch = infile.peek();
                 }
         
                 infile.close();
+
+
+                cout << endl << endl << endl;
+                g.print(hasLables);
         
-            }
+            } ///// end file read /////
             
         }
                 
