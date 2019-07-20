@@ -1,56 +1,29 @@
-/***********************************************************
-Name: Tomas Vasquez 
-Assignment: Final
-Purpose: 
-Notes:  
-***********************************************************/
 #include "graph.h"
+#include <iostream>
+#include <list>
 using namespace std;
 
 
-//Constructor of directed graph
 Graph::Graph(int V) 
 { 
     this->V = V; 
-    adj = new list<int>[V]; 
+    adj = new list<Node>[V]; 
+    weighted = false;
 } 
 
-// add edge to graph 
-void Graph :: addEdge ( int u, int v ) 
+void Graph::addEdge(int v, int w, int weight) 
 { 
-    adj[u].push_back(v); 
-    adj[v].push_back(u); 
+    Node tp(w,weight);
+    adj[v].push_back(tp);
+    if(weight > 1)
+    {
+        weighted = true;
+    }
+    //adj[w].push_back(v); 
 } 
 
-void Graph::DFSUtil(int v, bool visited[]) 
-{ 
-    // Mark the current node as visited and 
-    // print it 
-    visited[v] = true; 
-    cout << v << " "; 
-  
-    // Recur for all the vertices adjacent 
-    // to this vertex 
-    list<int>::iterator i; 
-    for (i = adj[v].begin(); i != adj[v].end(); ++i) 
-        if (!visited[*i]) 
-            DFSUtil(*i, visited); 
-} 
-  
-// DFS traversal of the vertices reachable from v. 
-// It uses recursive DFSUtil() 
-void Graph::DFS(int v) 
-{ 
-    // Mark all the vertices as not visited 
-    bool *visited = new bool[V]; 
-    for (int i = 0; i < V; i++) 
-        visited[i] = false; 
-  
-    // Call the recursive helper function 
-    // to print DFS traversal 
-    DFSUtil(v, visited); 
-} 
 
+// prints BFS traversal from a given source s
 void Graph::BFS(int s) 
 { 
     // Mark all the vertices as not visited 
@@ -67,7 +40,7 @@ void Graph::BFS(int s)
   
     // 'i' will be used to get all adjacent 
     // vertices of a vertex 
-    list<int>::iterator i; 
+    //list<Node>::iterator i; 
   
     while(!queue.empty()) 
     { 
@@ -79,63 +52,92 @@ void Graph::BFS(int s)
         // Get all adjacent vertices of the dequeued 
         // vertex s. If a adjacent has not been visited,  
         // then mark it visited and enqueue it 
-        for (i = adj[s].begin(); i != adj[s].end(); ++i) 
+        //for (i = adj[s].begin(); i != adj[s].end(); ++i) 
+        for(const Node & i : adj[s])
         { 
-            if (!visited[*i]) 
+            if (!visited[(i).name]) 
             { 
-                visited[*i] = true; 
-                queue.push_back(*i); 
+                visited[(i).name] = true; 
+                queue.push_back((i).name); 
             } 
         } 
     } 
 }
 
-// Returns count of edge in undirected graph 
-int Graph :: countEdges() 
-{ 
-    int sum = 0; 
-  
-    //traverse all vertex 
-    for (int i = 0 ; i < V ; i++) 
-  
-        // add all edge that are linked to the 
-        // current vertex 
-        sum += adj[i].size(); 
-  
-  
-    // The count of edge is always even because in 
-    // undirected graph every edge is connected 
-    // twice between two vertices 
-    return sum/2; 
-} 
 
-// Returns true if given graph is connected, else false 
-bool Graph::isConnected() 
+void Graph::DFSUtil(int v, bool visited[]) 
 { 
-    bool visited[V]; 
-    //memset(visited, false, sizeof(visited));            // may need to change thiss
-  
-    // Find all reachable vertices from first vertex 
-    DFS(0, visited); 
-  
-    // If set of reachable vertices includes all, 
-    // return true. 
-    for (int i=1; i<V; i++) 
-       if (visited[i] == false) 
-           return false; 
-  
-    return true; 
-} 
-
-void Graph::DFS(int v, bool visited[]) 
-{ 
-    // Mark the current node as visited and print it 
+    // Mark the current node as visited and 
+    // print it 
     visited[v] = true; 
+    cout << v << " "; 
   
-    // Recur for all the vertices adjacent to 
-    // this vertex 
-    list<int>::iterator i; 
-    for (i = adj[v].begin(); i != adj[v].end(); ++i) 
-        if (!visited[*i]) 
-            DFS(*i, visited); 
+    // Recur for all the vertices adjacent 
+    // to this vertex 
+    // list<int>::iterator i; 
+    // for (i = adj[v].begin(); i != adj[v].end(); ++i) 
+    for(const Node & i : adj[v])
+        if (!visited[i.name]) 
+            DFSUtil(i.name, visited); 
 } 
+  
+// DFS traversal of the vertices reachable from v. 
+// It uses recursive DFSUtil() 
+void Graph::DFS(int v) 
+{ 
+    // Mark all the vertices as not visited 
+    bool *visited = new bool[V]; 
+    for (int i = 0; i < V; i++) 
+        visited[i] = false; 
+  
+    // Call the recursive helper function 
+    // to print DFS traversal 
+    DFSUtil(v, visited); 
+} 
+
+int Graph::findWeight(int row, int col)
+{
+    for(Node & n : adj[row])
+        if(n.name == col)
+            return n.weight;
+    return -1;
+}
+
+void Graph::print(bool hasLables)
+{
+    char label = 'a';
+    if(hasLables)
+    {
+        cout << "X";
+        //char label = 'a';
+        for(int i=0; i<V;i++)
+        {
+            cout << ',' << (char)(label + i);
+        }
+        cout << endl;
+    }
+    for(int row=0; row<V;row++)
+    {
+        if(hasLables)
+            cout << (char)(label + row) << ',';
+        //cout << 0;
+        for(int col=0; col<V;col++)
+        {
+            if(col > 0)
+                cout << ',';
+            int weight = findWeight(row,col);
+            if(weight > 0)
+                cout << weight;
+            else
+            {
+                if(row == col)
+                    cout << 0;
+                else if (weighted)
+                    cout << 'x';
+                else
+                    cout << 0;
+            }
+        }
+        cout << endl;
+    }
+}
