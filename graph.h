@@ -9,28 +9,25 @@ Notes:
 #define GRAPH_H
 #include <list>
 #include <vector>
-#include<iostream>  
-
-// Adjacency list representation of graph 
+#include "data.h"
 class Graph 
 { 
-    int V;                          // No. of vertices 
-    std::list<int> *adj;            // Pointer to an array containing adjacency lists 
+private:
+    int V;    // No. of vertices 
+    bool weighted;
+    // Pointer to an array containing adjacency lists 
+    std::list<Node> *adj; 
+    int findWeight(int row, int col);
 
-public : 
-    Graph(int V); 
-    void addEdge (int u, int v ) ;      // function to add an edge to graph 
-    int countEdges();                   // function to count # of edge 
-    int countVertex();                  // function to count # of vertecies 
-    bool removeEdge();                  // function to remove edge 
-    bool removeVertex();                // function to remove edge 
-    void BFS(int s);                    // directed graph BFS traversal from point s 
-    void DFS(int v);                    // directed graph DFS traversal from point s
-    void DFS(int v, bool visited[]);
+public: 
+    Graph(int V);                   // Constructor 
+    void addEdge(int v, int w, int weight);     // Add w to v’s list
+    void BFS(int s);                // prints BFS traversal from a given source s
     void DFSUtil(int v, bool visited[]);
-    bool isConnected();                 //checks for connection in a directed graph
-    void listDisconnected();
+    void DFS(int v);                // DFS traversal of the vertices reachable from v   
+    void print(bool hasLables);
+    
 }; 
 
 
-#endif //GRAPH_H
+#endif
