@@ -2,19 +2,21 @@
 Name: Tomas Vasquez 
 Assignment: Final
 Purpose: 
-Notes:  
+Notes:   
 ***********************************************************/
+
 #ifndef DATA_H
 #define DATA_H
 
 #include <string>
-
 using std::string;
 
 
-typedef struct Node {
-    int id;
-    string data; 
-} DataNode;
+struct Node {
+    int name;
+    int weight;
+    Node(int n, int w)
+    {name=n; weight = w;}
+};
 
-#endif
+#endif /* DATA_H */
