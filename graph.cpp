@@ -19,6 +19,13 @@ void Graph::addEdge(int v, int w, int weight)
     {
         return false;
     }
+    if (int i = 0; i<adj[v].size();i++) //validation check for duplicate
+    {
+        if (adj[v[i].name ==w]
+        {
+            return false;
+        })
+    }
 
     Node tp(w,weight);
     adj[v].push_back(tp);
