@@ -71,6 +71,24 @@ int Graph::numEdges()
 
 }
 
+// Returns count of edge in undirected graph 
+int Graph :: countEdgesUndirected() 
+{ 
+    int sum = 0; 
+  
+    //traverse all vertex 
+    for (int i = 0 ; i < V ; i++) 
+
+        sum += adj[i].size(); 
+  
+    return sum/2; 
+} 
+
+bool Graph::removeVertex()
+{
+    
+}
+
 
 
 // prints BFS traversal from a given source s
