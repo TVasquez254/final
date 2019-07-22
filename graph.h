@@ -32,6 +32,7 @@ public:
     bool removeVertex(int);
     int numVertex();
     int numEdges();
+    int listDisconnected();
     
 }; 
 
