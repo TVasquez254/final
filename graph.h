@@ -29,7 +29,7 @@ public:
     void print(bool hasLables);
     bool isConnected();
     bool removeEdge();
-    bool removeVertex();
+    bool removeVertex(int);
     
 }; 
 
