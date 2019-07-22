@@ -14,7 +14,7 @@ class Graph
 { 
 private:
     int V;    // No. of vertices 
-    bool weighted;
+    bool directionalUnweighted;
     // Pointer to an array containing adjacency lists 
     std::list<Node> *adj; 
     int findWeight(int row, int col);
