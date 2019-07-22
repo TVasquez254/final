@@ -26,14 +26,14 @@ void Graph::addEdge(int v, int w, int weight)
             return false;
         })
     }
-
+    vertices[v]=true;
+    vertices[w]=true;
     Node tp(w,weight);
     adj[v].push_back(tp);
     if(weight > 1)
     {
         weighted = true;
-    }
-    //adj[w].push_back(v); 
+    } 
 } 
 
 
