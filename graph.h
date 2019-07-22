@@ -17,6 +17,7 @@ private:
     bool directionalUnweighted;
     // Pointer to an array containing adjacency lists 
     std::list<Node> *adj; 
+    bool *vertices;
     int findWeight(int row, int col);
 
 public: 
