@@ -15,6 +15,11 @@ Graph::Graph(int size, bool directionalUnweighted)
 
 void Graph::addEdge(int v, int w, int weight) 
 { 
+    if ((v<0 )||() w<0 )|| (v>=size) || (w>= size)     //validation   
+    {
+        return false;
+    }
+
     Node tp(w,weight);
     adj[v].push_back(tp);
     if(weight > 1)
