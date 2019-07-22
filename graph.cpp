@@ -47,6 +47,15 @@ bool Graph::addVertice(int v)
 
 int Graph::numVertex(int v)
 {
+    int count =0;
+    for (int i = 0; i<size; i++)
+    {
+        if (vertices[v])
+        {
+            count++;
+        }
+    }
+    return count;
     
 }
 
