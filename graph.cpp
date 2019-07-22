@@ -24,7 +24,7 @@ void Graph::addEdge(int v, int w, int weight)
         if (adj[v[i].name ==w]
         {
             return false;
-        })
+        }
     }
     vertices[v]=true;
     vertices[w]=true;
@@ -41,6 +41,7 @@ bool Graph::addVertice(int v)
     {
         return false;
     }
+    vertices[v]=true;
     
 }
 
