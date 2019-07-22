@@ -41,9 +41,18 @@ bool Graph::addVertice(int v)
     {
         return false;
     }
-    vertices[v]=true;
+    vertices[v]=true; // fixed errors
     
 }
+
+int Graph::numVertex(int v)
+{
+    
+}
+
+
+
+
 
 
 // prints BFS traversal from a given source s
