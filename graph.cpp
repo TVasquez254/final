@@ -35,6 +35,10 @@ void Graph::addEdge(int v, int w, int weight)
         weighted = true;
     } 
 } 
+bool Graph::addVertice(int v)
+{
+    
+}
 
 
 // prints BFS traversal from a given source s
