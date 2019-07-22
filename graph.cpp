@@ -60,7 +60,10 @@ int Graph::numVertex(int v)
 }
 
 
+int Graph::numEges()
+{
 
+}
 
 
 
