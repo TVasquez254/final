@@ -27,6 +27,7 @@ public:
     void DFSUtil(int v, bool visited[]);
     void DFS(int v);                // DFS traversal of the vertices reachable from v   
     void print(bool hasLables);
+    bool isConnected();
     
 }; 
 
