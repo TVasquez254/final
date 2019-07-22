@@ -28,6 +28,7 @@ public:
     void DFS(int v);                // DFS traversal of the vertices reachable from v   
     void print(bool hasLables);
     bool isConnected();
+    bool removeEdge();
     
 }; 
 
