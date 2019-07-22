@@ -8,8 +8,9 @@ Graph::Graph(int size, bool directionalUnweighted)
 { 
     this->V = V;
     this->size =size;
-    adj = new list<Node>[V]; 
+    adj = new list<Node>[size]; 
     weighted = false;
+    vertices = new bool [size]={false};
 } 
 
 void Graph::addEdge(int v, int w, int weight) 
