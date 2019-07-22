@@ -22,7 +22,7 @@ private:
 
 public: 
     Graph(int V);                   // Constructor 
-    void addEdge(int v, int w, int weight);     // Add w to v’s list
+    void addEdge(int v, int w, int weight=0);     // Add w to v’s list
     void BFS(int s);                // prints BFS traversal from a given source s
     void DFSUtil(int v, bool visited[]);
     void DFS(int v);                // DFS traversal of the vertices reachable from v   
