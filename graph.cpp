@@ -4,9 +4,10 @@
 using namespace std;
 
 
-Graph::Graph(int V) 
+Graph::Graph(int size, bool directionalUnweighted) 
 { 
-    this->V = V; 
+    this->V = V;
+    this->size =size;
     adj = new list<Node>[V]; 
     weighted = false;
 } 
