@@ -30,6 +30,8 @@ public:
     bool isConnected();
     bool removeEdge();
     bool removeVertex(int);
+    int numVertex();
+    int numEdges();
     
 }; 
 
