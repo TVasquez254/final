@@ -33,6 +33,7 @@ public:
     int numVertex();
     int numEdges();
     int listDisconnected();
+    int countEdgesUndirected();
     
 }; 
 
