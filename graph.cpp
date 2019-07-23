@@ -89,8 +89,12 @@ bool Graph::removeVertex()
     if((v>=size)||(v<0))
     {
         cout <<"Vertex DNE in graph"<<endl;
+        return false;
     }
-    
+}else 
+{
+    adj[v].clear(); //removes all in location. 
+    vertices[v]=false;
 }
 
 
