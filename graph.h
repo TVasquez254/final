@@ -13,15 +13,15 @@ Notes:
 class Graph 
 { 
 private:
-    int V;    // No. of vertices 
+    int size;    // No. of vertices 
     bool directionalUnweighted;
-    // Pointer to an array containing adjacency lists 
-    std::list<Node> *adj; 
+    
+    std::list<Node> *adj;           // Pointer to an array containing adjacency lists 
     bool *vertices;
     int findWeight(int row, int col);
 
 public: 
-    Graph(int V);                   // Constructor 
+    Graph(int size);                   // Constructor 
     void addEdge(int v, int w, int weight=0);     // Add w to v’s list
     void BFS(int s);                // prints BFS traversal from a given source s
     void DFSUtil(int v, bool visited[]);
