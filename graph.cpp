@@ -86,6 +86,10 @@ int Graph :: countEdgesUndirected()
 
 bool Graph::removeVertex()
 {
+    if((v>=size)||(v<0))
+    {
+        cout <<"Vertex DNE in graph"<<endl;
+    }
     
 }
 
