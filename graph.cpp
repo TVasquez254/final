@@ -95,6 +95,13 @@ bool Graph::removeVertex()
 {
     adj[v].clear(); //removes all in location. 
     vertices[v]=false;
+    for(int i = 0; i<size; i++)
+    {
+        for (auto j = adj[i].begin(); j!=adj[i].end())
+        {
+            
+        }
+    }
 }
 
 
