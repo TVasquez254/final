@@ -6,7 +6,7 @@ using namespace std;
 
 Graph::Graph(int size, bool directionalUnweighted) 
 { 
-    this->V = V;
+    this->directionalUnweighted = directionalUnweighted;
     this->size =size;
     adj = new list<Node>[size]; 
     weighted = false;
