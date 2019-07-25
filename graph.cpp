@@ -111,7 +111,7 @@ bool Graph::removeVertex()
     {
         for (auto j = adj[i].begin(); j!=adj[i].end())
         {
-            if(adj[i][j].name=v)
+            if(j->name==v)
             {
                 j = adj[i].erase(j); // reset after completion
             }else
@@ -119,10 +119,11 @@ bool Graph::removeVertex()
                 {
                     j++;
                 }
-            }
-            
+            } 
         }
+        numVertexCount--;
     }
+    return true;
 }
 
 
