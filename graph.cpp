@@ -45,6 +45,8 @@ void Graph::addEdge(int v, int w, int weight)
     {
         weighted = true;
     } 
+    numEdgeCount++; // count edges
+    return true;
 } 
 bool Graph::addVertice(int v)
 {
