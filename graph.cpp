@@ -17,6 +17,11 @@ Graph::Graph(int size, bool directionalUnweighted)
     adj = new list<Node>[size]; 
     weighted = false;
     vertices = new bool [size]={false};
+    for (int i =0; i<size; i++)
+    {
+        vertices[i]=false;
+    }
+
 } 
 
 void Graph::addEdge(int v, int w, int weight) 
