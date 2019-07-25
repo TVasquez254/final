@@ -128,7 +128,15 @@ bool Graph::removeVertex()
 
 bool Graph::removeEdge(int list, int value, bool directionalUnweighted)
 {
-    
+    if(directionalUnweighted)
+    {
+        for (auto j=adj[list].begin; j!=adj[list].end();)
+        {
+            adj[list].erase(j);
+            numEdgeCount--;
+            return true;
+        }
+    }
 }
 
 
