@@ -292,3 +292,28 @@ int Graph::numEdges()
 {
     return numEdgeCount;
 }
+
+void Graph::listDisconnected()
+{
+    bool *array = new bool [size];
+    for (int i=0; i<size; i++)
+    {
+        array[i]=!vertices[i];
+    }
+    int loca = -1;
+    for (int j=0;j<size;j++)
+    {
+        if(array[j]==false && loca == -1)
+        {
+            loca =j;
+        }
+    }
+    std::list<int>queue;
+    queue.push_back(loca);
+    while(queue.size()>0)
+    {
+        int curr = queue.front();
+        array[curr] = true;
+        for (auto i =adj[curr].begin(); i 1=adj[curr].end();)
+    }
+}
