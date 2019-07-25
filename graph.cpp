@@ -352,7 +352,24 @@ bool Graph::isConnected()
     queue.push_back(loca);
     while(queue.size()>0)
     {
+        int curr = queue.front();
+        array[curr]=true;
+        for (auto i=array[curr].begin(); I!=array[curr].end();)
+        {
+            if (array[i->name]==false)
+            {
+                queue.push_back(i->name);
+            }
+        }
 
     }
+    for (int i=0; i<size; i++)
+    {
+        delete [] array;
+        return false;
+    }
+
+    delete [] array;
+    return true;
 
 }
