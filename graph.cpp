@@ -1,3 +1,9 @@
+/***********************************************************
+Name: Tomas Vasquez 
+Assignment: 
+Purpose: 
+Notes:   
+***********************************************************/
 #include "graph.h"
 #include <iostream>
 #include <list>
