@@ -335,5 +335,10 @@ void Graph::listDisconnected()
 
 bool Graph::isConnected()
 {
-    
+    bool *array = new bool [size];
+    for (int i=0; i<size; i++)
+    {
+        array[i]=!vertices[i];
+    }
+
 }
