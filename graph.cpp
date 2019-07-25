@@ -282,3 +282,13 @@ void Graph::print(bool hasLables)
         cout << endl;
     }
 }
+
+int Graph::numVertex()
+{
+    return numVertexCount;
+}
+
+int Graph::numEdges()
+{
+    return numEdgeCount;
+}
