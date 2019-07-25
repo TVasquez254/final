@@ -315,5 +315,16 @@ void Graph::listDisconnected()
         int curr = queue.front();
         array[curr] = true;
         for (auto i =adj[curr].begin(); i 1=adj[curr].end();)
+        {
+            if(auto i=adj[curr].begin(); i!=adj[curr].end();)
+            {
+                queue.push_back(i->name);
+            }
+        }
+    }
+    for(int i=0; i<size; i++)
+    {
+        cout<<"These are the disconnected vertices"<<endl;
+
     }
 }
