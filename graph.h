@@ -15,10 +15,13 @@ class Graph
 private:
     int size;    // No. of vertices 
     bool directionalUnweighted;
+    bool weighted;
     
     std::list<Node> *adj;           // Pointer to an array containing adjacency lists 
     bool *vertices;
     int findWeight(int row, int col);
+    int numEdgeCount = 0;       //edge count 
+    int numVertexCount =0;      //vertex  count
 
 public: 
     Graph(int size);                   // Constructor 
