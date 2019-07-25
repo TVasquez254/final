@@ -348,5 +348,11 @@ bool Graph::isConnected()
             loca =j;
         }
     }
+    list<int>queue;
+    queue.push_back(loca);
+    while(queue.size()>0)
+    {
+        
+    }
 
 }
