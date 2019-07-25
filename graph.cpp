@@ -30,9 +30,9 @@ void Graph::addEdge(int v, int w, int weight)
     {
         return false;
     }
-    if (int i = 0; i<adj[v].size();i++) //validation check for duplicate
+    for (list<Node>::iterator it = adj[v].begin(); it 1=adj[v].end();++i) //validation check for duplicate
     {
-        if (adj[v[i].name ==w]
+        if (it->name ==w]
         {
             return false;
         }
