@@ -132,10 +132,33 @@ bool Graph::removeEdge(int list, int value, bool directionalUnweighted)
     {
         for (auto j=adj[list].begin; j!=adj[list].end();)
         {
-            adj[list].erase(j);
-            numEdgeCount--;
-            return true;
+            if(j->name == name)
+            {
+                adj[list].erase(j);
+                numEdgeCount--;
+                return true;
+            }
         }
+        return false;
+    }else 
+    {
+        for (auto i=adj[list].begin(); i!=adj[list].endl();)
+        {
+            if(i->name ==value)
+            {
+                adj[list].erase(i);
+                for (auto j=adj[list].begin(); j!=adj[list].end();)
+                {
+                    if(j->name==list)
+                    {
+                        adj[value].erase(j);
+                        numEdgeCount--;
+                        return true;
+                    }
+                }
+            }
+        }
+        return false;
     }
 }
 
