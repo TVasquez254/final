@@ -325,6 +325,15 @@ void Graph::listDisconnected()
     for(int i=0; i<size; i++)
     {
         cout<<"These are the disconnected vertices"<<endl;
-
+        cout<<endl;
+        if(array[i]==false)
+        {
+            cout<<"everything that is false"<<i<<endl;
+        }
     }
+}
+
+bool Graph::isConnected()
+{
+    
 }
