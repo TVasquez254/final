@@ -55,7 +55,8 @@ bool Graph::addVertice(int v)
         return false;
     }
     vertices[v]=true; // fixed errors
-    
+    numVertexCount++;
+    return true;
 }
 
 int Graph::numVertex(int v)
