@@ -340,5 +340,13 @@ bool Graph::isConnected()
     {
         array[i]=!vertices[i];
     }
+    int loca =-1;
+    for (int j=0; j<size;j++)
+    {
+        if (array[j]==false && loca =-1)
+        {
+            loca =j;
+        }
+    }
 
 }
