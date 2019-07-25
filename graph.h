@@ -32,13 +32,12 @@ public:
     void DFSUtil(int v, bool visited[]);
     void DFS(int v);                // DFS traversal of the vertices reachable from v   
     void print(bool hasLables);
-    bool isConnected();
-    bool removeEdge();
+    bool removeEdge(int, int, bool);
     bool removeVertex(int);
     int numVertex();
     int numEdges();
     int listDisconnected();
-    int countEdgesUndirected();
+    bool isConnected();
     
 }; 
 
