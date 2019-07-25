@@ -59,44 +59,32 @@ bool Graph::addVertice(int v)
     return true;
 }
 
-int Graph::numVertex(int v)
-{
-    int count =0;
-    for (int i = 0; i<size; i++)
-    {
-        if (vertices[v])
-        {
-            count++;
-        }
-    }
-    return count;
+// int Graph::numVertex(int v)
+// {
+//     int count =0;
+//     for (int i = 0; i<size; i++)
+//     {
+//         if (vertices[v])
+//         {
+//             count++;
+//         }
+//     }
+//     return count;
     
-}
+// }
 
 
-int Graph::numEdges()
-{
-    int count =0;
-    for (int i=0; i<size; i++)
-    {
-        count += adj[i].size();
-    }
-    return count;
+// int Graph::numEdges()
+// {
+//     int count =0;
+//     for (int i=0; i<size; i++)
+//     {
+//         count += adj[i].size();
+//     }
+//     return count;
 
-}
+// }
 
-// Returns count of edge in undirected graph 
-int Graph :: countEdgesUndirected() 
-{ 
-    int sum = 0; 
-  
-    //traverse all vertex 
-    for (int i = 0 ; i < V ; i++) 
-
-        sum += adj[i].size(); 
-  
-    return sum/2; 
-} 
 
 bool Graph::removeVertex()
 {
