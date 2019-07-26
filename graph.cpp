@@ -349,8 +349,12 @@ bool Graph::isConnected()
     }
     for (int i=0; i<size; i++)
     {
-        delete [] array;
-        return false;
+        if(array[i]==false)
+        {
+            delete [] array;
+            return false;
+        }
+        
     }
 
     delete [] array;
