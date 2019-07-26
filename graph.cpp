@@ -72,6 +72,11 @@ bool Graph::removeVertex()
     {
         cout<<"value does not exist"<<endl;
     }
+    if (!vertices[v])
+    {
+        cout<<"value doesnt exist"<<endl;
+        return false;
+    }
     if((v>=size)||(v<0))
     {
         cout <<"Vertex DNE in graph"<<endl;
