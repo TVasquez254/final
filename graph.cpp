@@ -66,18 +66,6 @@ bool Graph::addVertice(int v)
 
 }
 
-
-bool Graph::addVertice(int v)
-{
-    if(v>0||v>=size)
-    {
-        return false;
-    }
-    vertices[v]=true; //add vertix if no edges
-    numEdgeCount++;
-    return true;
-}
-
 bool Graph::removeVertex()
 {
     if((v>=size)||(v<0))
