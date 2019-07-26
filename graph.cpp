@@ -68,6 +68,10 @@ bool Graph::addVertice(int v)
 
 bool Graph::removeVertex()
 {
+    if(v>=size || v<0)
+    {
+        cout<<"value does not exist"<<endl;
+    }
     if((v>=size)||(v<0))
     {
         cout <<"Vertex DNE in graph"<<endl;
