@@ -21,7 +21,6 @@ Graph::Graph(int size, bool directionalUnweighted)
     {
         vertices[i]=false;
     }
-
 } 
 
 void Graph::addEdge(int v, int w, int weight) 
@@ -141,8 +140,6 @@ bool Graph::removeEdge(int list, int value)
     }
 }
 
-
-
 // prints BFS traversal from a given source s
 void Graph::BFS(int s) 
 { 
@@ -158,8 +155,7 @@ void Graph::BFS(int s)
     visited[s] = true; 
     queue.push_back(s); 
   
-    // 'i' will be used to get all adjacent 
-    // vertices of a vertex 
+    // 'i' will be used to get all adjacent vertices of a vertex 
     //list<Node>::iterator i; 
   
     while(!queue.empty()) 
@@ -169,8 +165,7 @@ void Graph::BFS(int s)
         cout << s << " "; 
         queue.pop_front(); 
   
-        // Get all adjacent vertices of the dequeued 
-        // vertex s. If a adjacent has not been visited,  
+        // Get all adjacent vertices of the dequeued  vertex s. If a adjacent has not been visited,  
         // then mark it visited and enqueue it 
         //for (i = adj[s].begin(); i != adj[s].end(); ++i) 
         for(const Node & i : adj[s])
@@ -184,7 +179,6 @@ void Graph::BFS(int s)
     } 
 }
 
-
 void Graph::DFSUtil(int v, bool visited[]) 
 { 
     // Mark the current node as visited and 
@@ -192,8 +186,7 @@ void Graph::DFSUtil(int v, bool visited[])
     visited[v] = true; 
     cout << v << " "; 
   
-    // Recur for all the vertices adjacent 
-    // to this vertex 
+    // Recur for all the vertices adjacent  to this vertex 
     // list<int>::iterator i; 
     // for (i = adj[v].begin(); i != adj[v].end(); ++i) 
     for(const Node & i : adj[v])
@@ -354,10 +347,8 @@ bool Graph::isConnected()
             delete [] array;
             return false;
         }
-        
     }
 
     delete [] array;
     return true;
-
 }
