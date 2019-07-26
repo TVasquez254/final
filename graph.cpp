@@ -296,8 +296,9 @@ void Graph::listDisconnected()
         queue.pop-front();
         for (auto i =array[curr].begin(); i!=array[curr].end();i++)
         {
-            if(auto i=array[curr].begin(); i!=array[curr].end();)
+            if(array[i->name]==false)
             {
+                array[i->name]=true;
                 queue.push_back(i->name);
             }
         }
