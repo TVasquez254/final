@@ -331,14 +331,17 @@ bool Graph::isConnected()
     }
     list<int>queue;
     queue.push_back(loca);
+    array[curr]=true;
     while(queue.size()>0)
     {
         int curr = queue.front();
-        array[curr]=true;
-        for (auto i=array[curr].begin(); I!=array[curr].end();)
+        queue.pop_front();
+        
+        for (auto i=array[curr].begin(); I!=array[curr].end();i++)
         {
             if (array[i->name]==false)
             {
+                array[i->name]=true;
                 queue.push_back(i->name);
             }
         }
