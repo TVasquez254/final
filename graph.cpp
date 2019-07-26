@@ -37,8 +37,10 @@ void Graph::addEdge(int v, int w, int weight)
             return false;
         }
     }
-    vertices[v]=true;
-    vertices[w]=true;
+    //vertices[v]=true;
+    addVertice(v);
+    //vertices[w]=true;
+    addVertice(w);
     Node tp(w,weight);
     adj[v].push_back(tp);
     if(weight > 1)
