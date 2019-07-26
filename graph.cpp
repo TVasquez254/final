@@ -52,7 +52,7 @@ void Graph::addEdge(int v, int w, int weight)
 } 
 bool Graph::addVertice(int v)
 {
-    if (v>0||v>=size)
+    if (v<0||v>=size)
     {
         return false;
     }
