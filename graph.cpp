@@ -287,13 +287,14 @@ void Graph::listDisconnected()
             loca =j;
         }
     }
-    std::list<int>queue;
+    list<int>queue;
     queue.push_back(loca);
+    array[loca]=true;
     while(queue.size()>0)
     {
         int curr = queue.front();
-        array[curr] = true;
-        for (auto i =array[curr].begin(); i 1=array[curr].end();)
+        queue.pop-front();
+        for (auto i =array[curr].begin(); i!=array[curr].end();i++)
         {
             if(auto i=array[curr].begin(); i!=array[curr].end();)
             {
