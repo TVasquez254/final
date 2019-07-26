@@ -105,13 +105,13 @@ bool Graph::removeVertex()
     return true;
 }
 
-bool Graph::removeEdge(int list, int value, bool directionalUnweighted)
+bool Graph::removeEdge(int list, int value)
 {
     if(directionalUnweighted)
     {
-        for (auto j=adj[list].begin; j!=adj[list].end();)
+        for (auto j=adj[list].begin; j!=adj[list].end();j++)
         {
-            if(j->name == name)
+            if(j->name == value)
             {
                 adj[list].erase(j);
                 numEdgeCount--;
@@ -121,12 +121,12 @@ bool Graph::removeEdge(int list, int value, bool directionalUnweighted)
         return false;
     }else 
     {
-        for (auto i=adj[list].begin(); i!=adj[list].endl();)
+        for (auto i=adj[list].begin(); i!=adj[list].endl();i++)
         {
             if(i->name ==value)
             {
                 adj[list].erase(i);
-                for (auto j=adj[list].begin(); j!=adj[list].end();)
+                for (auto j=adj[value].begin(); j!=adj[value].end();j++)
                 {
                     if(j->name==list)
                     {
