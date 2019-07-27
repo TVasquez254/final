@@ -60,9 +60,8 @@ int main(int argc, char *argv[])
                     infile.seekg(0, infile.beg);
 
 
-                Graph g(size);
+                Graph g(size, hasLables);
 
-                cout << "reading " << argv[i] << endl;
                 char ch; // character read from the file
                 int number;
                 int row = 0, col = 0;
