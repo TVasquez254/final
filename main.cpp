@@ -123,6 +123,12 @@ int main(int argc, char *argv[])
                 g.addVertice(9) ? cout << "added" << endl : cout << "failed" << endl;
                 cout<<endl;
 
+                cout << "Testing removing Edge from Adjacency list" << endl;
+                cout << "==============================================" << endl;                
+                cout<<"Remove edge (1,3): "<<endl;  
+                g.removeEdge(1,3) ? cout << "removed" << endl : cout << "failed" << endl;
+                cout<<endl;
+
                 
         
             } ///// end file read /////
