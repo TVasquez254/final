@@ -135,6 +135,13 @@ int main(int argc, char *argv[])
                 g.removeVertex(num2) ? cout << "removed" << endl : cout << "failed" << endl;
                 cout<<endl;
 
+                cout << "Testing Adding RANDOM edge to Adjacency list" << endl;
+                cout << "==============================================" << endl;                
+                cout<<"Adding edge ("<<num1<<","<<num2<<endl;  
+                g.addEdge(num1,num2) ? cout << "added" << endl : cout << "failed" << endl;
+                g.addEdge(num1,num2) ? cout<<"added"<< endl: cout<<"failed"<<endl;
+                cout<<endl;
+
                 
         
             } ///// end file read /////
