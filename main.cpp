@@ -129,10 +129,16 @@ int main(int argc, char *argv[])
                 g.removeVertex(num2) ? cout << "removed" << endl : cout << "failed" << endl;
                 cout<<endl;
 
-                cout << "Testing remove Vertix from Adjacency list" << endl;
+                cout << "Testing adding SAME edge from Adjacency list" << endl;
                 cout << "==============================================" << endl;                
-                cout<<"Adding edge (1,2): "<<endl;  
-                g.removeVertex(num2) ? cout << "removed" << endl : cout << "failed" << endl;
+                cout<<"Adding same edge: "<<endl;  
+                g.addEdge(2,3) ? cout << "added" << endl : cout << "failed" << endl;
+                cout<<endl;
+
+                cout << "Testing adding Vorex OUTSIDE of SIZE of Adjacency list" << endl;
+                cout << "==============================================" << endl;                
+                cout<<"Adding large edge: "<<endl;  
+                g.addVertice(10) ? cout << "added" << endl : cout << "failed" << endl;
                 cout<<endl;
 
                 cout << "Testing Adding RANDOM edge to Adjacency list" << endl;
@@ -140,6 +146,15 @@ int main(int argc, char *argv[])
                 cout<<"Adding edge ("<<num1<<","<<num2<<endl;  
                 g.addEdge(num1,num2) ? cout << "added" << endl : cout << "failed" << endl;
                 g.addEdge(num1,num2) ? cout<<"added"<< endl: cout<<"failed"<<endl;
+                cout<<endl;
+
+                cout << "Testing Adding RANDOM Edge to Adjacency list" << endl;
+                cout << "==============================================" << endl;                
+                cout<<"Adding ("<<num1<<","<<num2<<") edge: "<<endl; 
+                g.addEdge(num1,num2) ? cout << "added" << endl : cout << "failed" << endl;
+
+                cout<<"Adding ("<<num1<<","<<num2<<") edge: "<<endl; 
+                g.addEdge(num1,num2) ? cout << "added" << endl : cout << "failed" << endl;
                 cout<<endl;
 
                 
