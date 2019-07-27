@@ -100,6 +100,11 @@ int main(int argc, char *argv[])
                 }
         
                 infile.close();
+                int numPlace =20;
+                int num1 = rand() % numPlace;
+                int num2 = rand() % size;
+                int DFSnum = rand() % size;
+                cout<<endl;
 
 
                 cout << endl << endl << endl;
