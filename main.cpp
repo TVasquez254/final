@@ -129,6 +129,12 @@ int main(int argc, char *argv[])
                 g.removeEdge(1,3) ? cout << "removed" << endl : cout << "failed" << endl;
                 cout<<endl;
 
+                cout << "Testing remove Vertix from Adjacency list" << endl;
+                cout << "==============================================" << endl;                
+                cout<<"Adding edge (1,2): "<<endl;  
+                g.removeVertex(num2) ? cout << "removed" << endl : cout << "failed" << endl;
+                cout<<endl;
+
                 
         
             } ///// end file read /////
