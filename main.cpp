@@ -158,6 +158,25 @@ int main(int argc, char *argv[])
                 g.addEdge(num1,num2) ? cout << "added" << endl : cout << "failed" << endl;
                 cout<<endl;
 
+                cout << "DFS & BFS w/ same vertex" << endl;
+                cout << "==============================================" << endl;                
+                cout<<"Breath first Search results: "<<endl;
+                g.BFS(5);
+                cout<<endl;
+                cout<<"Depth first Search results:"<<endl;
+                g.DFS(5);
+                cout<<endl<<endl;
+
+                cout << "DFS & BFS w/ Random vertex" << endl;
+                cout << "==============================================" << endl;                
+                cout<<"Breath first Search results from "<<DFSnum<<": "<<endl;
+                g.BFS(DFSnum);
+                cout<<endl;
+                DFSnum = rand() % size;
+                cout<<"Depth first Search results from "<<DFSnum<<": "<<endl;
+                g.DFS(DFSnum);
+                cout<<endl;
+
                 
         
             } ///// end file read /////
