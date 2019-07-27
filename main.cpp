@@ -110,6 +110,14 @@ int main(int argc, char *argv[])
                 cout << endl << endl << endl;
                 g.print(hasLables);
                 cout<<endl;
+                
+                cout << "Testing Adding Edge NOT from Adjacency list" << endl;
+                cout << "==============================================" << endl;                
+                cout<<"Adding edge (1,2): "<<endl;  
+                g.addEdge(1,2) ? cout << "added" << endl : cout << "failed" << endl;
+                cout<<endl;
+
+                
         
             } ///// end file read /////
             
