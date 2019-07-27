@@ -15,9 +15,6 @@ bool displaySize(int argc, char** argv);
 int main(int argc, char *argv[])
 {
     srand(time(NULL));          // Time 
-    bool fileSize;              // file size evaluation
-    int id;                     // id extractor 
-    string word;                // file word extraction
     int h=0;                    //ARGV counter
     h = argc-1;                 // maintenance counter control
     
