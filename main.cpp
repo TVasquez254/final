@@ -141,11 +141,12 @@ int main(int argc, char *argv[])
                 g.addVertice(10) ? cout << "added" << endl : cout << "failed" << endl;
                 cout<<endl;
 
-                cout << "Testing Adding RANDOM edge to Adjacency list" << endl;
+                cout << "Testing Adding RANDOM Vertex to Adjacency list" << endl;
                 cout << "==============================================" << endl;                
-                cout<<"Adding edge ("<<num1<<","<<num2<<endl;  
-                g.addEdge(num1,num2) ? cout << "added" << endl : cout << "failed" << endl;
-                g.addEdge(num1,num2) ? cout<<"added"<< endl: cout<<"failed"<<endl;
+                cout<<"Adding "<<num1<< " vertex: "<<endl; 
+                g.addVertice(num1) ? cout << "added" << endl : cout << "failed" << endl;
+                cout<<"Adding "<<num2<< " vertex: "<<endl; 
+                g.addVertice(num2) ? cout << "added" << endl : cout << "failed" << endl;
                 cout<<endl;
 
                 cout << "Testing Adding RANDOM Edge to Adjacency list" << endl;
