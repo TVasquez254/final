@@ -111,22 +111,22 @@ int main(int argc, char *argv[])
                 g.print(hasLables);
                 cout<<endl;
 
-                cout << "Testing Adding Edge NOT from Adjacency list" << endl;
+                cout << "Testing Adding Vertex NOT from Adjacency list" << endl;
                 cout << "==============================================" << endl;                
-                cout<<"Adding edge (1,2): "<<endl;  
-                g.addEdge(1,2) ? cout << "added" << endl : cout << "failed" << endl;
-                cout<<endl;
-
-                cout << "Testing Adding vertex NOT from Adjacency list" << endl;
-                cout << "==============================================" << endl;                
-                cout<<"Adding vertex (9): "<<endl;  
+                cout<<"Adding vertex 9: "<<endl;  
                 g.addVertice(9) ? cout << "added" << endl : cout << "failed" << endl;
                 cout<<endl;
 
-                cout << "Testing removing Edge from Adjacency list" << endl;
+                cout << "Testing Removing Edge from Adjacency list" << endl;
                 cout << "==============================================" << endl;                
-                cout<<"Remove edge (1,3): "<<endl;  
+                cout<<"Remove Edge (1,3): "<<endl;  
                 g.removeEdge(1,3) ? cout << "removed" << endl : cout << "failed" << endl;
+                cout<<endl;
+
+                cout << "Testing removing Vertex from Adjacency list" << endl;
+                cout << "==============================================" << endl;                
+                cout<<"Remove vertex "<<num2<<endl;  
+                g.removeVertex(num2) ? cout << "removed" << endl : cout << "failed" << endl;
                 cout<<endl;
 
                 cout << "Testing remove Vertix from Adjacency list" << endl;
