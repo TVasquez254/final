@@ -105,10 +105,11 @@ int main(int argc, char *argv[])
                 int num2 = rand() % size;
                 int DFSnum = rand() % size;
                 cout<<endl;
-
-
+                cout<<"Random values: "<<num1<< " "<<num2<<endl;
+                
                 cout << endl << endl << endl;
                 g.print(hasLables);
+                cout<<endl;
         
             } ///// end file read /////
             
