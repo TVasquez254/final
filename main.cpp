@@ -223,7 +223,19 @@ int main(int argc, char *argv[])
                         g.addEdge(num1,num2,num3) ? cout << "added" << endl : cout << "failed-- already exists" << endl;
                         cout<<endl;
                     }
-                } 
+                } else
+                {
+                    cout<<"Testing adding RANDOM number of edges"<<endl;
+                    for (int i =0; i<num3; i++)
+                    {
+                        num1 = rand() % size;       //resetting during each iteration 
+                        num2 = rand() % size;       
+
+                        cout<<"Adding ("<<num1<<","<<num2<<") edge: "<<endl; 
+                        g.addEdge(num1,num2) ? cout << "added" << endl : cout << "failed-- already exists" << endl;
+                    }
+
+                }
 
                 
 
