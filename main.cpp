@@ -177,6 +177,13 @@ int main(int argc, char *argv[])
                 g.removeVertex(11) ? cout << "removed" << endl : cout << "failed" << endl;
                 cout<<endl;
 
+                cout << "Testing Adding 3 Vertex to Adjacency list" << endl;
+                cout << "==============================================" << endl; 
+                num1 = rand() % size;       //resetting to generate diff test case 
+                num2 = rand() % size;       //resetting to generate diff test case
+                int num4 =3;
+                int num5 = rand()%size2;
+
                 
 
 
