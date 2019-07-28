@@ -139,10 +139,10 @@ int main(int argc, char *argv[])
                 g.addEdge(0,1) ? cout << "added" << endl : cout << "failed--It already exists" << endl;
                 cout<<endl; 
 
-                cout << "Testing adding SAME edge from Adjacency list" << endl;
+                cout << "Testing Removing RANDOM Edge from Adjacency list (part1)" << endl;
                 cout << "==============================================" << endl;                
-                cout<<"Adding same edge: "<<endl;  
-                g.addEdge(2,3) ? cout << "added" << endl : cout << "failed" << endl;
+                cout<<"Removing ("<<num1<<","<<num2<<") edge: "<<endl; 
+                g.removeEdge(num1,num2) ? cout << "removed" << endl : cout << "failed" << endl;
                 cout<<endl;
 
                 cout << "Testing adding Vorex OUTSIDE of SIZE of Adjacency list" << endl;
