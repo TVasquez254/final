@@ -9,7 +9,10 @@ Notes:
 #define GRAPH_H
 #include <list>
 #include <vector>
+#include <iostream>
 #include "data.h"
+
+using namespace std;
 class Graph 
 { 
 private:
