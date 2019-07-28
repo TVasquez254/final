@@ -102,14 +102,22 @@ int main(int argc, char *argv[])
                 }
         
                 infile.close();
-                int numPlace =20;
-                int num1 = rand() % numPlace;
+                /*
+                *  Generating test data numbers to conduct tests
+                */
+
+                int size2 =20;                      //Testing past failure
+                int num1 = rand() % size;           
                 int num2 = rand() % size;
+                int num3 = rand() % size2;
+                int edgeWeight = rand() % size2;
                 int DFSnum = rand() % size;
                 cout<<endl;
-                cout<<"Random values: "<<num1<< " "<<num2<<endl;
-                
-                cout << endl << endl << endl;
+                            //*************************************************************
+                            //   Main Data Test-Checking for error & failure              *
+                            //*************************************************************  
+
+                cout << endl << endl;
                 g.print(hasLables);
                 cout<<endl;
 
