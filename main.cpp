@@ -133,11 +133,11 @@ int main(int argc, char *argv[])
                 g.addVertice(10) ? cout << "added" << endl : cout << "failed" << endl;
                 cout<<endl; 
 
-                cout << "Testing removing Vertex from Adjacency list" << endl;
+                cout << "Testing Adding Duplicate Edge from Adjacency list" << endl;
                 cout << "==============================================" << endl;                
-                cout<<"Remove vertex "<<num2<<endl;  
-                g.removeVertex(num2) ? cout << "removed" << endl : cout << "failed" << endl;
-                cout<<endl;
+                cout<<"Adding edge (0,1): "<<endl;
+                g.addEdge(0,1) ? cout << "added" << endl : cout << "failed--It already exists" << endl;
+                cout<<endl; 
 
                 cout << "Testing adding SAME edge from Adjacency list" << endl;
                 cout << "==============================================" << endl;                
