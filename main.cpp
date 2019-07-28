@@ -262,6 +262,20 @@ int main(int argc, char *argv[])
                 g.DFS(DFSnum);
                 cout<<endl;
 
+                cout << "DFS & BFS w/ Random vertex and Random number of times" << endl;
+                cout << "==============================================" << endl; 
+                for (int i=0;i<num2;i++)
+                {
+                    cout<<"Breath first Search results from "<<DFSnum<<": "<<endl;
+                    g.BFS(DFSnum);
+                    cout<<endl;
+                    DFSnum = rand() % size;
+                    cout<<"Depth first Search results from "<<DFSnum<<": "<<endl;
+                    g.DFS(DFSnum);
+                    cout<<endl<<endl;
+
+                } 
+
                 cout<<endl<< endl << endl << endl;
                 cout << "Adjacency list edge/vortex Info" << endl;
                 cout << "==============================================" << endl;
