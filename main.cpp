@@ -14,6 +14,7 @@ int main(int argc, char *argv[])
     srand(time(NULL));          // Time 
     int h=0;                    //ARGV counter
     h = argc-1;                 // maintenance counter control
+    bool loca2=false;                   //determine if graph is weighted
     
 
     if (h==0)
