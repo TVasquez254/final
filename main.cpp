@@ -6,17 +6,13 @@ Notes:
 ***********************************************************/
 
 #include "main.h"
-
-using namespace std;
-bool displaySize(int argc, char** argv);
 int main(int argc, char *argv[])
 {
-    srand(time(NULL));          // Time 
-    int h=0;                    //ARGV counter
-    h = argc-1;                 // maintenance counter control
+    srand(time(NULL));                  // Time 
+    int h=0;                            //ARGV counter
+    h = argc-1;                         // maintenance counter control
     bool loca2=false;                   //determine if graph is weighted
     
-
     if (h==0)
     {
         cout<<"cannot enter no arguments"<<endl;
@@ -30,10 +26,10 @@ int main(int argc, char *argv[])
             cout<<endl;
 
             if (!infile.is_open()){
-                cout<<"files doesnt exist"<<endl;
+                cout<<"file doesnt exist"<<endl;
             } else if(infile.eof())
             {
-                cout<<"nothing there"<<endl;
+                cout<<"nothing is there"<<endl;
                 
             }  else  ////////// File open and has data //////////////
             {
@@ -58,18 +54,26 @@ int main(int argc, char *argv[])
                     infile.seekg(0, infile.beg);
 
 
+                    // Reconfiguring size to account for diff test cases!
+                    //size = size+2;
+
+
                 Graph g(size, hasLables);
 
-                char ch; // character read from the file
-                int number;
-                int row = 0, col = 0;
+                /*
+                *  Displaying list 
+                */
+                cout << "Testing Dispaying Adjacency list" << endl;
+                cout << "==============================================" << endl;
+                char ch;                        // character read from the file
+                int number;                     //number reader
+                int row = 0, col = 0;           //column counter
                 ch = infile.peek();
                 while (!infile.eof())
                 {
                     //cout << ch ;
                     if (isdigit(ch))
                     {
-                        
                         infile >> number;
                         if (number>1)
                         {
@@ -83,7 +87,6 @@ int main(int argc, char *argv[])
                             g.addEdge(row,col, number);
                         }
                         col++;
-                        //cout<< number;
                     }
                     else{
                         ch = infile.get();
@@ -118,7 +121,7 @@ int main(int argc, char *argv[])
                             //*************************************************************  
 
                 cout << endl << endl;
-                g.print(hasLables);
+                g.print(hasLables);             //Printing table for visual reference 
                 cout<<endl;
 
                 cout << "Testing Adding Edge NOT from Adjacency list" << endl;
@@ -131,20 +134,19 @@ int main(int argc, char *argv[])
                 cout << "==============================================" << endl;                
                 cout<<"Adding vertex 10: "<<endl;
                 g.addVertice(10) ? cout << "added" << endl : cout << "failed" << endl;
-                cout<<endl; 
+                cout<<endl;   
 
                 cout << "Testing Adding Duplicate Edge from Adjacency list" << endl;
                 cout << "==============================================" << endl;                
                 cout<<"Adding edge (0,1): "<<endl;
                 g.addEdge(0,1) ? cout << "added" << endl : cout << "failed--It already exists" << endl;
-                cout<<endl; 
+                cout<<endl;  
 
                 cout << "Testing Removing RANDOM Edge from Adjacency list (part1)" << endl;
                 cout << "==============================================" << endl;                
                 cout<<"Removing ("<<num1<<","<<num2<<") edge: "<<endl; 
                 g.removeEdge(num1,num2) ? cout << "removed" << endl : cout << "failed" << endl;
                 cout<<endl;
-
 
                 if (g.removeEdge(num1,num2))
                 {
@@ -156,6 +158,7 @@ int main(int argc, char *argv[])
                 /*
                 *  Resetting a new number 
                 */
+
                 num2 = rand() % size; 
 
                 cout << "Testing Removing RANDOM Vertex from Adjacency list" << endl;
@@ -192,7 +195,6 @@ int main(int argc, char *argv[])
                     cout<<endl;
                 }
 
-
                 cout << "Testing Removing RANDOM number of edges to Adjacency list" << endl;
                 cout << "==============================================" << endl; 
                  for (int i=0; i<num4; i++)
@@ -210,7 +212,7 @@ int main(int argc, char *argv[])
                 num2 = rand() % size;       //resetting to generate diff test case
                 num3 = rand() % size2;
 
-                 if(loca2)
+                if(loca2)
                 {
                     cout<<"Testing adding RANDOM number of edges with WEIGHTS"<<endl;
                     for (int i =0; i<num3; i++)
@@ -237,7 +239,6 @@ int main(int argc, char *argv[])
 
                 }
 
-
                 cout << "DFS & BFS w/ same vertex" << endl;
                 cout << "==============================================" << endl;                
                 cout<<"Breath first Search results: "<<endl;
@@ -246,7 +247,6 @@ int main(int argc, char *argv[])
                 cout<<"Depth first Search results:"<<endl;
                 g.DFS(5);
                 cout<<endl<<endl;
-
 
                 /*
                 *  To account for connected but disjointed graphs that are from original graph 
@@ -274,8 +274,7 @@ int main(int argc, char *argv[])
                     g.DFS(DFSnum);
                     cout<<endl<<endl;
 
-                } 
-
+                }       
                 cout <<"Adjacency list edge/vortex Info" << endl;
                 cout <<"==============================================" << endl;
                 cout<<"Edge count: "<<g.numEdges()<<endl;
@@ -291,11 +290,18 @@ int main(int argc, char *argv[])
 
                 cout << endl << endl; 
 
-                
+
+
+
+
+           
+
+
+
         
             } ///// end file read /////
             
-        }
+        }                       //left off here****************************************************************
                 
     } else {
         cout<<"file DNE (Does not exist)"<<endl;

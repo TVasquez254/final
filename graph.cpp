@@ -240,41 +240,44 @@ int Graph::findWeight(int row, int col)
 //Print the adjaceny list
 void Graph::print(bool hasLables)
 {
+    ofstream fout;
+    fout.open("example.txt");
     char label = 'a';
     if(hasLables)
     {
-        cout << "X";
+        fout << "X";
         //char label = 'a';
         for(int i=0; i<size;i++)
         {
-            cout << ',' << (char)(label + i);
+            fout << ',' << (char)(label + i);
         }
-        cout << endl;
+        fout << endl;
     }
     for(int row=0; row<size;row++)
     {
         if(hasLables)
-            cout << (char)(label + row) << ',';
+            fout << (char)(label + row) << ',';
         //cout << 0;
         for(int col=0; col<size;col++)
         {
             if(col > 0)
-                cout << ',';
+                fout << ',';
             int weight = findWeight(row,col);
             if(weight > 0)
-                cout << weight;
+                fout << weight;
             else
             {
                 if(row == col)
-                    cout << 0;
+                    fout << 0;
                 else if (weighted)
-                    cout << 'x';
+                    fout << 'x';
                 else
-                    cout << 0;
+                    fout << 0;
             }
         }
-        cout << endl;
+        fout << endl;
     }
+    fout.close();
 }
 
 //Returns vertex count
