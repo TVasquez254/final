@@ -145,10 +145,22 @@ int main(int argc, char *argv[])
                 g.removeEdge(num1,num2) ? cout << "removed" << endl : cout << "failed" << endl;
                 cout<<endl;
 
+
+                if (g.removeEdge(num1,num2))
+                {
+                    cout<<"Is the graph Connected: "<<endl;
+                    g.isConnected() ? cout << "Yes" << endl : cout << "No" << endl;
+                    cout<<endl;
+                }
+
+                /*
+                *  Resetting a new number 
+                */
+
                 
 
 
-                
+
 
                 cout << "DFS & BFS w/ same vertex" << endl;
                 cout << "==============================================" << endl;                
