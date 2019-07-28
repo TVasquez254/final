@@ -237,10 +237,6 @@ int main(int argc, char *argv[])
 
                 }
 
-                
-
-
-
 
                 cout << "DFS & BFS w/ same vertex" << endl;
                 cout << "==============================================" << endl;                
@@ -250,6 +246,11 @@ int main(int argc, char *argv[])
                 cout<<"Depth first Search results:"<<endl;
                 g.DFS(5);
                 cout<<endl<<endl;
+
+
+                /*
+                *  To account for connected but disjointed graphs that are from original graph 
+                */
 
                 cout << "DFS & BFS w/ Random vertex" << endl;
                 cout << "==============================================" << endl;                
