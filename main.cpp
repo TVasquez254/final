@@ -121,11 +121,11 @@ int main(int argc, char *argv[])
                 g.print(hasLables);
                 cout<<endl;
 
-                cout << "Testing Adding Vertex NOT from Adjacency list" << endl;
+                cout << "Testing Adding Edge NOT from Adjacency list" << endl;
                 cout << "==============================================" << endl;                
-                cout<<"Adding vertex 9: "<<endl;  
-                g.addVertice(9) ? cout << "added" << endl : cout << "failed" << endl;
-                cout<<endl;
+                cout<<"Adding edge (0,5): "<<endl;  
+                g.addEdge(0,5) ? cout << "added" << endl : cout << "failed" << endl;
+                cout<<endl; 
 
                 cout << "Testing Removing Edge from Adjacency list" << endl;
                 cout << "==============================================" << endl;                
