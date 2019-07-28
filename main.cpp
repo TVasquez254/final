@@ -127,11 +127,11 @@ int main(int argc, char *argv[])
                 g.addEdge(0,5) ? cout << "added" << endl : cout << "failed" << endl;
                 cout<<endl; 
 
-                cout << "Testing Removing Edge from Adjacency list" << endl;
+                cout << "Testing Adding Vertex NOT from Adjacency list" << endl;
                 cout << "==============================================" << endl;                
-                cout<<"Remove Edge (1,3): "<<endl;  
-                g.removeEdge(1,3) ? cout << "removed" << endl : cout << "failed" << endl;
-                cout<<endl;
+                cout<<"Adding vertex 10: "<<endl;
+                g.addVertice(10) ? cout << "added" << endl : cout << "failed" << endl;
+                cout<<endl; 
 
                 cout << "Testing removing Vertex from Adjacency list" << endl;
                 cout << "==============================================" << endl;                
