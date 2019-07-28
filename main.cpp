@@ -71,6 +71,10 @@ int main(int argc, char *argv[])
                     {
                         
                         infile >> number;
+                        if (number>1)
+                        {
+                            loca2=true;
+                        }
                         
                         if(number > 0)
                         {
