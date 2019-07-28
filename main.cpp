@@ -192,6 +192,18 @@ int main(int argc, char *argv[])
                     cout<<endl;
                 }
 
+
+                cout << "Testing Removing RANDOM number of edges to Adjacency list" << endl;
+                cout << "==============================================" << endl; 
+                 for (int i=0; i<num4; i++)
+                {
+                    num1 = rand() % size;
+                    num2 = rand() % size;
+                    cout<<"Removing ("<<num1<<","<<num2<<") edge: "<<endl; 
+                    g.removeEdge(num1,num2) ? cout << "removed" << endl : cout << "failed" << endl;
+                    cout<<endl;
+                }
+
                 
 
 
