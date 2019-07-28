@@ -1,117 +1,135 @@
 /***********************************************************
 Name: Tomas Vasquez 
-Assignment: Final
+Assignment: 
 Purpose: 
 Notes:   
 ***********************************************************/
 #include "graph.h"
-#include <iostream>
-#include <list>
-using namespace std;
 
-
+//Constructor
 Graph::Graph(int size, bool directionalUnweighted) 
 { 
     this->directionalUnweighted = directionalUnweighted;
-    this->size =size;
+    this-> size= size; 
     adj = new list<Node>[size]; 
     weighted = false;
-    vertices = new bool [size]={false};
-    for (int i =0; i<size; i++)
+    vertices = new bool [size];
+    for(int i=0;i<size; i++)
     {
-        vertices[i]=false;
-    }
-} 
+        vertices[i] = false;
+    } 
+}
 
-void Graph::addEdge(int v, int w, int weight) 
+//Destructor
+Graph::~Graph()
+{
+    delete [] vertices;     //release memory 
+
+    for (int i=0; i<size; i++)
+    {
+        adj[i].clear(); // deletes each node in the adj Node array.
+    }
+    delete [] adj;
+}
+
+//Function to add edge
+bool Graph::addEdge(int v, int w, int weight) 
 { 
-    if ((v<0 )||() w<0 )|| (v>=size) || (w>= size)     //validation   
+    if ((v<0 )|| (w<0 )|| (v>=size) || (w>= size))     //validation   
     {
         return false;
     }
-    for (list<Node>::iterator it = adj[v].begin(); it 1=adj[v].end();++i) //validation check for duplicate
-    {
-        if (it->name ==w]
+    for (list<Node>::iterator it = adj[v].begin(); it != adj[v].end(); ++it){
+        if (it->name==w)
         {
-            return false;
+            return false; 
         }
     }
-    //vertices[v]=true;
+
     addVertice(v);
-    //vertices[w]=true;
+    
     addVertice(w);
     Node tp(w,weight);
     adj[v].push_back(tp);
     if(weight > 1)
     {
         weighted = true;
-    } 
-    numEdgeCount++; // count edges
+    }
+    numEdgeCount++;
+
     return true;
 } 
+
+
+//Function to add vertex
 bool Graph::addVertice(int v)
 {
-    if (v<0||v>=size)
+    if (v<0)
     {
         return false;
     }
-    if (!vertices[v])
+    if(!vertices[v])
     {
-        vertices[v]=true; // add vertix if no edges
+        vertices[v]=true; //add vertix if no edges
         numVertexCount++;
         return true;
     }
     return false;
-
 }
 
-bool Graph::removeVertex()
+//Function to remove vertex
+bool Graph::removeVertex(int v)
 {
-    if(v>=size || v<0)
+    if(v<0)      //within bounds
     {
         cout<<"value does not exist"<<endl;
     }
-    if (!vertices[v])
+
+    if(!vertices[v])     //checks for value in vertices array
     {
         cout<<"value doesnt exist"<<endl;
         return false;
+        
     }
-    if((v>=size)||(v<0))
+    
+    if ((v >=size)||(v<0))
     {
-        cout <<"Vertex DNE in graph"<<endl;
+        cout<<"Vertex does not exist in graph"<<endl;
         return false;
-    }
-}else 
-{
-    adj[v].clear(); //removes all in location. 
-    vertices[v]=false;
-    for(int i = 0; i<size; i++)
+    }else 
     {
-        for (auto j = adj[i].begin(); j!=adj[i].end())
+        adj[v].clear(); // removes all in location. Vertex has no edges. 
+        vertices[v]=false; // vertex is not there 
+        for (int i = 0; i<size; i++)
         {
-            if(j->name==v)
+            for (auto j =adj[i].begin(); j!=adj[i].end();)
             {
-                j = adj[i].erase(j); // reset after completion
-            }else
-            {
+                if(j->name==v)
                 {
-                    j++;
+                    j = adj[i].erase(j); // j is going to reset after completion
+                }else 
+                {
+                    j++; 
                 }
-            } 
+            }
         }
         numVertexCount--;
     }
     return true;
 }
 
-bool Graph::removeEdge(int list, int value)
+//Function to remove edge
+bool Graph::removeEdge(int list, int value)  //use value from constructor
 {
-    if(directionalUnweighted)
+    if (directionalUnweighted)
     {
-        for (auto j=adj[list].begin; j!=adj[list].end();j++)
+        
+        for (auto j =adj[list].begin(); j!=adj[list].end();j++)
         {
-            if(j->name == value)
+            
+            if(j->name == value) // looking in list to find value
             {
+                
                 adj[list].erase(j);
                 numEdgeCount--;
                 return true;
@@ -120,32 +138,38 @@ bool Graph::removeEdge(int list, int value)
         return false;
     }else 
     {
-        for (auto i=adj[list].begin(); i!=adj[list].endl();i++)
+        
+        for (auto i =adj[list].begin(); i!=adj[list].end();i++)
         {
-            if(i->name ==value)
+            
+            if (i->name ==value)
             {
                 adj[list].erase(i);
-                for (auto j=adj[value].begin(); j!=adj[value].end();j++)
+                for (auto j =adj[value].begin(); j!=adj[value].end();j++) //looping looking at back
                 {
-                    if(j->name==list)
+                    
+                    if (j->name==list)   // looking in list to find value
                     {
                         adj[value].erase(j);
                         numEdgeCount--;
                         return true;
                     }
                 }
+                return false;
             }
         }
         return false;
     }
+
 }
+
 
 // prints BFS traversal from a given source s
 void Graph::BFS(int s) 
 { 
     // Mark all the vertices as not visited 
-    bool *visited = new bool[V]; 
-    for(int i = 0; i < V; i++) 
+    bool *visited = new bool[size]; 
+    for(int i = 0; i < size; i++) 
         visited[i] = false; 
   
     // Create a queue for BFS 
@@ -156,8 +180,6 @@ void Graph::BFS(int s)
     queue.push_back(s); 
   
     // 'i' will be used to get all adjacent vertices of a vertex 
-    //list<Node>::iterator i; 
-  
     while(!queue.empty()) 
     { 
         // Dequeue a vertex from queue and print it 
@@ -165,7 +187,7 @@ void Graph::BFS(int s)
         cout << s << " "; 
         queue.pop_front(); 
   
-        // Get all adjacent vertices of the dequeued  vertex s. If a adjacent has not been visited,  
+        // Get all adjacent vertices of the dequeued vertex s. If a adjacent has not been visited,  
         // then mark it visited and enqueue it 
         //for (i = adj[s].begin(); i != adj[s].end(); ++i) 
         for(const Node & i : adj[s])
@@ -179,14 +201,14 @@ void Graph::BFS(int s)
     } 
 }
 
+//Utility used by DFS to determine if it was visited
 void Graph::DFSUtil(int v, bool visited[]) 
 { 
-    // Mark the current node as visited and 
-    // print it 
+    // Mark the current node as visited and print it 
     visited[v] = true; 
     cout << v << " "; 
   
-    // Recur for all the vertices adjacent  to this vertex 
+    // Recur for all the vertices adjacent to this vertex 
     // list<int>::iterator i; 
     // for (i = adj[v].begin(); i != adj[v].end(); ++i) 
     for(const Node & i : adj[v])
@@ -194,20 +216,19 @@ void Graph::DFSUtil(int v, bool visited[])
             DFSUtil(i.name, visited); 
 } 
   
-// DFS traversal of the vertices reachable from v. 
-// It uses recursive DFSUtil() 
+// DFS traversal of the vertices reachable from v. It uses recursive DFSUtil() 
 void Graph::DFS(int v) 
 { 
     // Mark all the vertices as not visited 
-    bool *visited = new bool[V]; 
-    for (int i = 0; i < V; i++) 
+    bool *visited = new bool[size]; 
+    for (int i = 0; i < size; i++) 
         visited[i] = false; 
   
-    // Call the recursive helper function 
-    // to print DFS traversal 
+    // Call the recursive helper function to print DFS traversal 
     DFSUtil(v, visited); 
 } 
 
+//find the weight of edges
 int Graph::findWeight(int row, int col)
 {
     for(Node & n : adj[row])
@@ -216,6 +237,7 @@ int Graph::findWeight(int row, int col)
     return -1;
 }
 
+//Print the adjaceny list
 void Graph::print(bool hasLables)
 {
     char label = 'a';
@@ -223,18 +245,18 @@ void Graph::print(bool hasLables)
     {
         cout << "X";
         //char label = 'a';
-        for(int i=0; i<V;i++)
+        for(int i=0; i<size;i++)
         {
             cout << ',' << (char)(label + i);
         }
         cout << endl;
     }
-    for(int row=0; row<V;row++)
+    for(int row=0; row<size;row++)
     {
         if(hasLables)
             cout << (char)(label + row) << ',';
         //cout << 0;
-        for(int col=0; col<V;col++)
+        for(int col=0; col<size;col++)
         {
             if(col > 0)
                 cout << ',';
@@ -255,100 +277,114 @@ void Graph::print(bool hasLables)
     }
 }
 
+//Returns vertex count
 int Graph::numVertex()
 {
     return numVertexCount;
 }
 
+//Returns edge count
 int Graph::numEdges()
 {
     return numEdgeCount;
 }
 
+//Prints out the values if the graph is disconnected
 void Graph::listDisconnected()
 {
     bool *array = new bool [size];
     for (int i=0; i<size; i++)
     {
-        array[i]=!vertices[i];
+        array[i]=!vertices[i];   //if exists then dont check
     }
-    int loca = -1;
+    int loca =-1;
     for (int j=0;j<size;j++)
     {
-        if(array[j]==false && loca == -1)
+        if(array[j]==false && loca ==-1)     // there is no vertex there.
         {
-            loca =j;
+            loca =j; //location of first false. once set not changing
         }
     }
-    list<int>queue;
+    list<int>queue; //
     queue.push_back(loca);
-    array[loca]=true;
-    while(queue.size()>0)
+    array[loca]= true;  //pushing first and makring it. visted that vertice and connected
+    while (queue.size()>0)
     {
-        int curr = queue.front();
-        queue.pop-front();
-        for (auto i =array[curr].begin(); i!=array[curr].end();i++)
+        int curr = queue.front();           //removed from stack
+        queue.pop_front();      // actually removing. It never gets to zero in size
+        
+        for (auto i =adj[curr].begin(); i!=adj[curr].end();i++)  //looping for that vertice
         {
-            if(array[i->name]==false)
+            if (array[i->name]==false) //if true we dont want to visit and infinite loop. 
             {
                 array[i->name]=true;
-                queue.push_back(i->name);
+                queue.push_back(i->name);    //this location is false and not visited. We are checking 
             }
-        }
+        }//pushed any not checked. One at a time true if anything false its disconnected
+
     }
-    for(int i=0; i<size; i++)
+    cout<<"These are the disconnected vertices"<<endl;
+    cout<<endl;
+    for (int i=0; i<size; i++)
     {
-        cout<<"These are the disconnected vertices"<<endl;
-        cout<<endl;
-        if(array[i]==false)
+        
+        if (array[i]==false) //could use ! to sub for the false
         {
-            cout<<"everything that is false"<<i<<endl;
+            cout<<"Nodes "<<i<<endl;
         }
     }
 }
 
+//Function that checks if all the nodes are connected
 bool Graph::isConnected()
 {
+    //cout << "first" << endl;
     bool *array = new bool [size];
-    for (int i=0; i<size; i++)
+    //cout << "*array declared" << endl;
+    for (int i =0; i<size; i++)
     {
-        array[i]=!vertices[i];
+        // cout << "vertices[" <<i<<"] is "<< vertices[i] << endl;
+        array[i]=!vertices[i];   //if exists then dont check
     }
     int loca =-1;
-    for (int j=0; j<size;j++)
+    // cout << "first loop done" << endl;
+    for (int j=0;j<size;j++)
     {
-        if (array[j]==false && loca =-1)
+        if(array[j]==false && loca ==-1)
         {
-            loca =j;
+            loca =j; //location of first false
         }
     }
-    list<int>queue;
+    // cout << "second loop done" << endl;
+    list<int>queue; //
     queue.push_back(loca);
-    array[curr]=true;
-    while(queue.size()>0)
+    array[loca]= true;  //pushing first and makring it. visited that vertice and connected
+    while (queue.size()>0)
     {
-        int curr = queue.front();
-        queue.pop_front();
+        int curr = queue.front();           //removed from stack
+        queue.pop_front();      // actually removing. It never gets to zero in size
         
-        for (auto i=array[curr].begin(); I!=array[curr].end();i++)
+        for (auto i =adj[curr].begin(); i!=adj[curr].end();i++)  //looping for that vertice
         {
-            if (array[i->name]==false)
+            if (array[i->name]==false) //if true we dont want to visit and infinite loop. 
             {
                 array[i->name]=true;
-                queue.push_back(i->name);
+                queue.push_back(i->name);    //this location is false and not visited. We are checking 
             }
-        }
+        }//pushed any not checked. One at a time true if anything false its disconnected
 
     }
+    // cout << "third loop done" << endl;
     for (int i=0; i<size; i++)
     {
-        if(array[i]==false)
+        if (array[i]==false) //could use ! to sub for the false
         {
-            delete [] array;
+            delete[] array;     // free the allocated to prevent memory leak
             return false;
         }
     }
-
-    delete [] array;
+    // cout << "forth loop done" << endl;
+    delete[] array;     // free the allocated to prevent memory leak
     return true;
+
 }
