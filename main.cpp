@@ -276,20 +276,20 @@ int main(int argc, char *argv[])
 
                 } 
 
-                cout<<endl<< endl << endl << endl;
-                cout << "Adjacency list edge/vortex Info" << endl;
-                cout << "==============================================" << endl;
-                cout<<"Edge count: "<<endl;
-                g.numEdges();cout<<endl;
-                g.addVertice(9);
-                cout<<"Vertex count: "<<endl;
-                g.numVertex();
-                cout<<endl;
+                cout <<"Adjacency list edge/vortex Info" << endl;
+                cout <<"==============================================" << endl;
+                cout<<"Edge count: "<<g.numEdges()<<endl;
+                cout<<"Vertex count: "<<g.numVertex()<<endl;
                 cout<<"Is the graph Connected: "<<endl;
                 g.isConnected() ? cout << "Yes" << endl : cout << "No" << endl;
                 cout<<endl;
-                cout<<"List the disconnected:"<<endl;
-                g.listDisconnected();
+                if(!g.isConnected())
+                {
+                    cout<<"List the disconnected:"<<endl;
+                    g.listDisconnected();
+                }
+
+                cout << endl << endl; 
 
                 
         
