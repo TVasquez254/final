@@ -156,6 +156,13 @@ int main(int argc, char *argv[])
                 /*
                 *  Resetting a new number 
                 */
+                num2 = rand() % size; 
+
+                cout << "Testing Removing RANDOM Vertex from Adjacency list" << endl;
+                cout << "==============================================" << endl;
+                cout<<"Remove vertex "<<num2<<": "<<endl;
+                g.removeVertex(num2) ? cout << "removed" << endl : cout << "failed" << endl;
+                cout<<endl;
 
                 
 
