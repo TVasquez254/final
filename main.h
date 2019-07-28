@@ -9,6 +9,10 @@ Notes:
 #define MAIN_H
 #include "graph.h"
 #include "data.h"
+#include <iostream>
+#include <fstream>
+#include <string>
+using namespace std;
 
 
 #endif
