@@ -210,6 +210,21 @@ int main(int argc, char *argv[])
                 num2 = rand() % size;       //resetting to generate diff test case
                 num3 = rand() % size2;
 
+                 if(loca2)
+                {
+                    cout<<"Testing adding RANDOM number of edges with WEIGHTS"<<endl;
+                    for (int i =0; i<num3; i++)
+                    {
+                        num1 = rand() % size;       //resetting during each iteration 
+                        num2 = rand() % size; 
+                        edgeWeight = rand() % size2;
+                        cout<<endl<<endl;
+                        cout<<num1<<","<<num2<<","<<edgeWeight<<endl;
+                        g.addEdge(num1,num2,num3) ? cout << "added" << endl : cout << "failed-- already exists" << endl;
+                        cout<<endl;
+                    }
+                } 
+
                 
 
 
