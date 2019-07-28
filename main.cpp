@@ -145,28 +145,10 @@ int main(int argc, char *argv[])
                 g.removeEdge(num1,num2) ? cout << "removed" << endl : cout << "failed" << endl;
                 cout<<endl;
 
-                cout << "Testing adding Vorex OUTSIDE of SIZE of Adjacency list" << endl;
-                cout << "==============================================" << endl;                
-                cout<<"Adding large edge: "<<endl;  
-                g.addVertice(10) ? cout << "added" << endl : cout << "failed" << endl;
-                cout<<endl;
+                
 
-                cout << "Testing Adding RANDOM Vertex to Adjacency list" << endl;
-                cout << "==============================================" << endl;                
-                cout<<"Adding "<<num1<< " vertex: "<<endl; 
-                g.addVertice(num1) ? cout << "added" << endl : cout << "failed" << endl;
-                cout<<"Adding "<<num2<< " vertex: "<<endl; 
-                g.addVertice(num2) ? cout << "added" << endl : cout << "failed" << endl;
-                cout<<endl;
 
-                cout << "Testing Adding RANDOM Edge to Adjacency list" << endl;
-                cout << "==============================================" << endl;                
-                cout<<"Adding ("<<num1<<","<<num2<<") edge: "<<endl; 
-                g.addEdge(num1,num2) ? cout << "added" << endl : cout << "failed" << endl;
-
-                cout<<"Adding ("<<num1<<","<<num2<<") edge: "<<endl; 
-                g.addEdge(num1,num2) ? cout << "added" << endl : cout << "failed" << endl;
-                cout<<endl;
+                
 
                 cout << "DFS & BFS w/ same vertex" << endl;
                 cout << "==============================================" << endl;                
