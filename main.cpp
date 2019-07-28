@@ -184,6 +184,14 @@ int main(int argc, char *argv[])
                 int num4 =3;
                 int num5 = rand()%size2;
 
+                for (int i=0; i<num4; i++)
+                {
+                    num5 = rand() % size2;
+                    cout<<"Adding "<<num5<< " vertex: "<<endl; 
+                    g.addVertice(num5) ? cout << "added" << endl : cout << "failed" << endl;
+                    cout<<endl;
+                }
+
                 
 
 
