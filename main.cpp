@@ -30,10 +30,10 @@ int main(int argc, char *argv[])
             cout<<endl;
 
             if (!infile.is_open()){
-                cout<<"nothing is there"<<endl;
+                cout<<"files doesnt exist"<<endl;
             } else if(infile.eof())
             {
-                cout<<"file doesnt exist"<<endl;
+                cout<<"nothing there"<<endl;
                 
             }  else  ////////// File open and has data //////////////
             {
