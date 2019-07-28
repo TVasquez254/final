@@ -171,6 +171,12 @@ int main(int argc, char *argv[])
                     cout<<endl;
                 }
 
+                cout << "Testing removing Vortex OUTSIDE of SIZE of Adjacency list" << endl;
+                cout << "==============================================" << endl;                
+                cout<<"Removing out of scope edge: "<<endl;  
+                g.removeVertex(11) ? cout << "removed" << endl : cout << "failed" << endl;
+                cout<<endl;
+
                 
 
 
