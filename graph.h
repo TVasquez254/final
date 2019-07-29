@@ -24,8 +24,8 @@ private:
     std::list<Node> *adj;                       // Pointer to an array containing adjacency lists
     bool *vertices;
     int findWeight(int row, int col);
-    int numEdgeCount=0;                         //edge count
-    int numVertexCount =0;                      // vertex count
+    int numEdgeCount;                        //edge count
+    int numVertexCount;                      // vertex count
 
 public: 
     Graph(int, bool);                           // Constructor 

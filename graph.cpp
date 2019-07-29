@@ -12,6 +12,8 @@ Graph::Graph(int size, bool directionalUnweighted)
     this->directionalUnweighted = directionalUnweighted;
     this-> size= size; 
     adj = new list<Node>[size]; 
+    numEdgeCount=0;                         //edge count
+    numVertexCount =0;
     weighted = false;
     vertices = new bool [size];
     for(int i=0;i<size; i++)
