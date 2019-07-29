@@ -121,7 +121,8 @@ int main(int argc, char *argv[])
                             //*************************************************************  
 
                 cout << endl << endl;
-                g.print(hasLables);             //Printing table for visual reference 
+                g.display(hasLables);             //Displaying table for visual reference
+                g.print(hasLables);             //Writing table to txt file 
                 cout<<endl;
 
                 cout << "Testing Adding Edge NOT from Adjacency list" << endl;
