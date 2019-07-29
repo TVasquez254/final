@@ -432,5 +432,5 @@ void Graph::display(bool hasLables)
         }
         cout << endl;
     }
-    cout.close();
+    
 }

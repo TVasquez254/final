@@ -119,6 +119,12 @@ int main(int argc, char *argv[])
                 cout << endl << endl;
                 g.display(hasLables);             //Displaying table for visual reference
                 g.print(hasLables);             //Writing table to txt file 
+                cout<<endl<<endl<<endl;
+                cout<<"Intial counts  from Adjacency list"<<endl;
+                cout << "==============================================" << endl;                
+                cout<<"Edge count: "<<g.numEdges()<<endl;
+                cout<<"Vertex count: "<<g.numVertex()<<endl;
+                cout<<endl<<endl<<endl;
                 cout<<endl;
 
                 cout << "Testing Adding Edge NOT from Adjacency list" << endl;
@@ -235,6 +241,43 @@ int main(int argc, char *argv[])
                     }
 
                 }
+
+                cout << "Testing Adding RANDOM Edge to Adjacency list in both directions" << endl;
+                cout << "==============================================" << endl;   
+                num1 = rand() % size;       //resetting to generate diff test case 
+                num2 = rand() % size;       //resetting to generate diff test case
+                num3 = rand() % size2;
+
+                if(loca2)
+                {
+                    cout<<"Testing adding RANDOM number of edges with WEIGHTS"<<endl;
+                    for (int i =0; i<num3; i++)
+                    {
+                        num1 = rand() % size;       //resetting during each iteration 
+                        num2 = rand() % size; 
+                        edgeWeight = rand() % size2;
+                        cout<<endl<<endl;
+                        cout<<num1<<","<<num2<<","<<edgeWeight<<endl;
+                        g.addEdge(num1,num2,edgeWeight) ? cout << "added" << endl : cout << "failed-- already exists" << endl;
+                        edgeWeight = rand() % size2;
+                        g.addEdge(num2,num1,edgeWeight) ? cout << "added" << endl : cout << "failed-- already exists" << endl;
+                        cout<<endl;
+                    }
+                } else
+                {
+                    cout<<"Testing adding RANDOM number of edges"<<endl;
+                    for (int i =0; i<num3; i++)
+                    {
+                        num1 = rand() % size;       //resetting during each iteration 
+                        num2 = rand() % size;       
+
+                        cout<<"Adding ("<<num1<<","<<num2<<") edge: "<<endl; 
+                        g.addEdge(num1,num2) ? cout << "added" << endl : cout << "failed-- already exists" << endl;
+                        g.addEdge(num2,num1) ? cout << "added" << endl : cout << "failed-- already exists" << endl;
+                    }
+
+                }
+
 
                 cout << "DFS & BFS w/ same vertex" << endl;
                 cout << "==============================================" << endl;                
