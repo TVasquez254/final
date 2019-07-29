@@ -125,7 +125,6 @@ int main(int argc, char *argv[])
                 cout<<"Edge count: "<<g.numEdges()<<endl;
                 cout<<"Vertex count: "<<g.numVertex()<<endl;
                 cout<<endl<<endl<<endl;
-                cout<<endl;
 
                 cout << "Testing Adding Edge NOT from Adjacency list" << endl;
                 cout << "==============================================" << endl;                
