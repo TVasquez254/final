@@ -239,7 +239,7 @@ int Graph::findWeight(int row, int col)
     return -1;
 }
 
-//Print the adjaceny list
+//Writes adjaceny list to a file
 void Graph::print(bool hasLables)
 {
     ofstream fout;
@@ -392,4 +392,45 @@ bool Graph::isConnected()
     delete[] array;     // free the allocated to prevent memory leak
     return true;
 
+}
+
+//Print the adjaceny list
+void Graph::display(bool hasLables)
+{
+    char label = 'a';
+    if(hasLables)
+    {
+        cout << "X";
+        //char label = 'a';
+        for(int i=0; i<size;i++)
+        {
+            cout << ',' << (char)(label + i);
+        }
+        cout << endl;
+    }
+    for(int row=0; row<size;row++)
+    {
+        if(hasLables)
+            cout << (char)(label + row) << ',';
+        
+        for(int col=0; col<size;col++)
+        {
+            if(col > 0)
+                cout << ',';
+            int weight = findWeight(row,col);
+            if(weight > 0)
+                cout << weight;
+            else
+            {
+                if(row == col)
+                    cout << 0;
+                else if (weighted)
+                    cout << 'x';
+                else
+                    cout << 0;
+            }
+        }
+        cout << endl;
+    }
+    cout.close();
 }

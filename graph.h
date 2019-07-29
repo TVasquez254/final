@@ -41,7 +41,8 @@ public:
     int numVertex();      
     int numEdges();
     void listDisconnected();  
-    bool isConnected();     
+    bool isConnected(); 
+    void display(bool hasLables);    
 
 
     
