@@ -54,10 +54,6 @@ int main(int argc, char *argv[])
                     infile.seekg(0, infile.beg);
 
 
-                    // Reconfiguring size to account for diff test cases!
-                    //size = size+2;
-
-
                 Graph g(size, hasLables);
 
                 /*
