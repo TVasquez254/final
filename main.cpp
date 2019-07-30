@@ -169,12 +169,7 @@ int main(int argc, char *argv[])
                     g.removeEdge(num1,num2) ? cout << "removed" << endl : cout << "failed" << endl;
                     cout<<endl;
 
-                    if (g.removeEdge(num1,num2))
-                    {
-                        cout<<"Is the graph Connected: "<<endl;
-                        g.isConnected() ? cout << "Yes" << endl : cout << "No" << endl;
-                        cout<<endl;
-                    }
+                
 
                     /*
                     *  Resetting a new number 
@@ -189,12 +184,7 @@ int main(int argc, char *argv[])
                     g.removeVertex(num2) ? cout << "removed" << endl : cout << "failed" << endl;
                     cout<<endl;
 
-                    if(g.removeVertex(num2))
-                    {
-                        cout<<"Is the graph Connected: "<<endl;
-                        g.isConnected() ? cout << "Yes" << endl : cout << "No" << endl;
-                        cout<<endl;
-                    }
+                    
 
                     cout << "Testing removing Vortex OUTSIDE of SIZE of Adjacency list" << endl;
                     cout << "==============================================" << endl;                
@@ -375,12 +365,7 @@ int main(int argc, char *argv[])
                         g.removeVertex(num2) ? cout << "removed" << endl : cout << "failed" << endl;
                         cout<<endl;
 
-                        if(g.removeVertex(num2))
-                        {
-                            cout<<"Is the graph Connected: "<<endl;
-                            g.isConnected() ? cout << "Yes" << endl : cout << "No" << endl;
-                            cout<<endl;
-                        }
+                        
 
                         cout << "Testing removing Vortex OUTSIDE of SIZE of Adjacency list" << endl;
                         cout << "==============================================" << endl;                
