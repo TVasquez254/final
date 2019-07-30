@@ -1,6 +1,6 @@
 /***********************************************************
 Name: Tomas Vasquez 
-Assignment: 
+Assignment: Final
 Purpose: 
 Notes:   
 ***********************************************************/
@@ -32,17 +32,18 @@ public:
     ~Graph();                                   // Destructor 
     bool addEdge(int v, int w, int weight=0);   // Add w to v’s list. Unweighted defaults to zero
     bool addVertice(int);   
-    void BFS(int s);                            // BFS traversal from a given source s
-    void DFSUtil(int v, bool visited[]);
-    void DFS(int v);                            // DFS traversal of vertices reachable from v   
+    void BFS(int s, bool hasLables);                            // BFS traversal from a given source s
+    void DFSUtil(int v, bool visited[], bool hasLables);
+    void DFS(int v, bool hasLables);                            // DFS traversal of vertices reachable from v   
     void print(bool hasLables);
     bool removeEdge(int, int); 
     bool removeVertex(int);
     int numVertex();      
     int numEdges();
-    void listDisconnected();  
+    void listDisconnected(bool hasLables);  
     bool isConnected(); 
-    void display(bool hasLables);    
+    void display(bool hasLables);  
+    char conversion (int x);  
 
 
     
