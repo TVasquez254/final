@@ -1,6 +1,6 @@
 /***********************************************************
 Name: Tomas Vasquez 
-Assignment: 
+Assignment: Final
 Purpose: 
 Notes:   
 ***********************************************************/
@@ -12,7 +12,7 @@ Graph::Graph(int size, bool directionalUnweighted)
     this->directionalUnweighted = directionalUnweighted;
     this-> size= size; 
     adj = new list<Node>[size]; 
-    numEdgeCount=0;                         //edge count
+    numEdgeCount=0;                        
     numVertexCount =0;
     weighted = false;
     vertices = new bool [size];
@@ -60,6 +60,7 @@ bool Graph::addEdge(int v, int w, int weight)
     numEdgeCount++;
 
     return true;
+
 } 
 
 
@@ -167,7 +168,7 @@ bool Graph::removeEdge(int list, int value)  //use value from constructor
 
 
 // prints BFS traversal from a given source s
-void Graph::BFS(int s) 
+void Graph::BFS(int s, bool hasLables) 
 { 
     // Mark all the vertices as not visited 
     bool *visited = new bool[size]; 
@@ -186,7 +187,15 @@ void Graph::BFS(int s)
     { 
         // Dequeue a vertex from queue and print it 
         s = queue.front(); 
-        cout << s << " "; 
+        if (hasLables)
+        {
+            cout<<conversion(s)<<" ";
+        }
+        else{
+            cout << s << " ";
+        }
+        //cout << s << " "; 
+        
         queue.pop_front(); 
   
         // Get all adjacent vertices of the dequeued vertex s. If a adjacent has not been visited,  
@@ -204,22 +213,30 @@ void Graph::BFS(int s)
 }
 
 //Utility used by DFS to determine if it was visited
-void Graph::DFSUtil(int v, bool visited[]) 
+void Graph::DFSUtil(int v, bool visited[], bool hasLables) 
 { 
     // Mark the current node as visited and print it 
     visited[v] = true; 
-    cout << v << " "; 
+    if (hasLables)
+    {
+        cout<<conversion(v)<<" ";
+        
+    }else{
+        cout << v << " ";
+
+    }
+    //cout << v << " "; 
   
     // Recur for all the vertices adjacent to this vertex 
     // list<int>::iterator i; 
     // for (i = adj[v].begin(); i != adj[v].end(); ++i) 
     for(const Node & i : adj[v])
         if (!visited[i.name]) 
-            DFSUtil(i.name, visited); 
+            DFSUtil(i.name, visited, hasLables); 
 } 
   
 // DFS traversal of the vertices reachable from v. It uses recursive DFSUtil() 
-void Graph::DFS(int v) 
+void Graph::DFS(int v, bool hasLables) 
 { 
     // Mark all the vertices as not visited 
     bool *visited = new bool[size]; 
@@ -227,7 +244,7 @@ void Graph::DFS(int v)
         visited[i] = false; 
   
     // Call the recursive helper function to print DFS traversal 
-    DFSUtil(v, visited); 
+    DFSUtil(v, visited, hasLables); 
 } 
 
 //find the weight of edges
@@ -295,7 +312,7 @@ int Graph::numEdges()
 }
 
 //Prints out the values if the graph is disconnected
-void Graph::listDisconnected()
+void Graph::listDisconnected(bool hasLables)
 {
     bool *array = new bool [size];
     for (int i=0; i<size; i++)
@@ -335,7 +352,14 @@ void Graph::listDisconnected()
         
         if (array[i]==false) //could use ! to sub for the false
         {
-            cout<<"Nodes "<<i<<endl;
+            if(hasLables){
+                cout<<"Nodes "<<conversion(i)<<endl;
+
+            }else{
+                cout<<"Nodes "<<i<<endl;
+
+            }
+            //cout<<"Nodes "<<i<<endl;
         }
     }
 }
@@ -343,16 +367,16 @@ void Graph::listDisconnected()
 //Function that checks if all the nodes are connected
 bool Graph::isConnected()
 {
-    //cout << "first" << endl;
+    
     bool *array = new bool [size];
     //cout << "*array declared" << endl;
     for (int i =0; i<size; i++)
     {
-        // cout << "vertices[" <<i<<"] is "<< vertices[i] << endl;
+       
         array[i]=!vertices[i];   //if exists then dont check
     }
     int loca =-1;
-    // cout << "first loop done" << endl;
+    
     for (int j=0;j<size;j++)
     {
         if(array[j]==false && loca ==-1)
@@ -360,8 +384,8 @@ bool Graph::isConnected()
             loca =j; //location of first false
         }
     }
-    // cout << "second loop done" << endl;
-    list<int>queue; //
+    
+    list<int>queue; // Create a queue for connection
     queue.push_back(loca);
     array[loca]= true;  //pushing first and makring it. visited that vertice and connected
     while (queue.size()>0)
@@ -379,7 +403,7 @@ bool Graph::isConnected()
         }//pushed any not checked. One at a time true if anything false its disconnected
 
     }
-    // cout << "third loop done" << endl;
+    
     for (int i=0; i<size; i++)
     {
         if (array[i]==false) //could use ! to sub for the false
@@ -388,7 +412,7 @@ bool Graph::isConnected()
             return false;
         }
     }
-    // cout << "forth loop done" << endl;
+    
     delete[] array;     // free the allocated to prevent memory leak
     return true;
 
@@ -401,7 +425,7 @@ void Graph::display(bool hasLables)
     if(hasLables)
     {
         cout << "X";
-        //char label = 'a';
+        
         for(int i=0; i<size;i++)
         {
             cout << ',' << (char)(label + i);
@@ -433,4 +457,20 @@ void Graph::display(bool hasLables)
         cout << endl;
     }
     
+}
+
+
+char Graph::conversion (int num)
+{
+    char label = 'a';
+    char label2;
+     for( int i = 0; i < 26; i++) 
+   {
+       if (num==i)
+       {
+           //cout << "value: " << (char)(label+i) << endl;
+           label2=(char)(label+i);
+       }
+   }
+    return label2;
 }
