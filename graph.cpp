@@ -40,14 +40,17 @@ Graph::~Graph()
 //Function to add edge
 bool Graph::addEdge(int v, int w, int weight) 
 { 
+    bool success = true;
     if ((v<0 )|| (w<0 )|| (v>=size) || (w>= size))     //validation   
     {
-        return false;
+        //return false;
+        success = false;
     }
     for (list<Node>::iterator it = adj[v].begin(); it != adj[v].end(); ++it){
         if (it->name==w)
         {
-            return false; 
+            //return false; 
+            success = false;
         }
     }
 
@@ -62,7 +65,8 @@ bool Graph::addEdge(int v, int w, int weight)
     }
     numEdgeCount++;
 
-    return true;
+    //return true;
+    return success;
 
 } 
 
@@ -70,22 +74,28 @@ bool Graph::addEdge(int v, int w, int weight)
 //Function to add vertex
 bool Graph::addVertice(int v)
 {
+    bool success =false;
     if (v<0)
     {
-        return false;
+        //return false;
+        success =false;
     }
     if(!vertices[v])
     {
         vertices[v]=true; //add vertix if no edges
         numVertexCount++;
-        return true;
+        //return true;
+        success =true;
     }
-    return false;
+    //return false;
+    return success;
 }
 
 //Function to remove vertex
 bool Graph::removeVertex(int v)
 {
+    
+    bool success = true;
     if(v<0)      //within bounds
     {
         cout<<"value does not exist"<<endl;
@@ -94,14 +104,16 @@ bool Graph::removeVertex(int v)
     if(!vertices[v])     //checks for value in vertices array
     {
         cout<<"value doesnt exist"<<endl;
-        return false;
+        //return false;
+        success = false;
         
     }
     
     if ((v >=size)||(v<0))
     {
         cout<<"Vertex does not exist in graph"<<endl;
-        return false;
+        //return false;
+        success = false;
     }else 
     {
         adj[v].clear(); // removes all in location. Vertex has no edges. 
@@ -121,7 +133,8 @@ bool Graph::removeVertex(int v)
         }
         numVertexCount--;
     }
-    return true;
+    //return true;
+    return success;
 }
 
 //Function to remove edge
@@ -372,7 +385,7 @@ bool Graph::isConnected()
 {
     
     bool *array = new bool [size];
-    //cout << "*array declared" << endl;
+    
     for (int i =0; i<size; i++)
     {
        
